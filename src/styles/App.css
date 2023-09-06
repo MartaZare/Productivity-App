@@ -1,0 +1,50 @@
+.carousel-status,
+.control-dots {
+  display: none;
+}
+
+.thumbs {
+  display: flex;
+  justify-content: center;
+}
+
+#warrior,
+#athena,
+#druid,
+#alchemy,
+#assasin,
+#barbarian,
+#magician,
+#samurai {
+  height: 500px;
+  width: 500px;
+  animation: levitate 4s ease-in-out infinite;
+}
+
+@keyframes levitate {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.thumb > #warrior,
+.thumb > #athena,
+.thumb > #druid,
+.thumb > #alchemy,
+.thumb > #assasin,
+.thumb > #barbarian,
+.thumb > #magician,
+.thumb > #samurai {
+  height: 70px;
+  width: 70px;
+  animation: none;
+}
+
+.home {
+  height: 100vh;
+  background-image: url("public/assets/other/champ-select.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}/*# sourceMappingURL=App.css.map */

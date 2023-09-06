@@ -9,7 +9,7 @@ function MainTimer() {
   const [rounds, setRounds] = useState(INITIAL_ROUNDS);
   const [timeLeft, setTimeLeft] = useState<number>(INITIAL_WORK_TIME * 60);
   const [pause, setPause] = useState(false);
-  const [work, setWork] = useState(true);
+  const [workMode, setWorkMode] = useState(true);
 
   const minutes = Math.floor(timeLeft / 60);
   const seconds = Math.floor(timeLeft % 60);
@@ -23,16 +23,16 @@ function MainTimer() {
         clearInterval(interval);
       };
     } else if (timeLeft === 0 && rounds > 0) {
-      if (work) {
-        setWork(false);
+      if (workMode) {
+        setWorkMode(false);
         setTimeLeft(INITIAL_REST_TIME * 60);
         setRounds((prev) => prev - 1);
       } else {
-        setWork(true);
+        setWorkMode(true);
         setTimeLeft(INITIAL_WORK_TIME * 60);
       }
     }
-  }, [timeLeft, pause, rounds, work]);
+  }, [timeLeft, pause, rounds, workMode]);
 
   function handlePause() {
     setPause((prev) => !prev);
@@ -44,7 +44,7 @@ function MainTimer() {
         <>
           {timeLeft >= 0 ? (
             <>
-              {work ? "Work" : "Rest"}: {minutes} :{" "}
+              {workMode ? "Work" : "Rest"}: {minutes} :{" "}
               {seconds < 10 ? `0${seconds}` : seconds}
               <button onClick={handlePause}>
                 {pause ? "Paused" : "Pause"}

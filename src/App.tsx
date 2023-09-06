@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./styles/App.css";
 import Home from "./pages/home/Home";
 import Play from "./pages/play/Play";
 import Stats from "./pages/stats/Stats";
