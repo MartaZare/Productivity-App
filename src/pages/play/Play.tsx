@@ -1,11 +1,10 @@
-import React from "react";
-import Timer from "./components/Timer";
+import MainTimer from "./components/MainTImer";
 
 function Play() {
   return (
     <div>
       Play
-      <Timer />
+      <MainTimer />
     </div>
   );
 }
