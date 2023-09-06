@@ -1,11 +1,11 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import ChampionSelect from "./components/ChampionSelect";
 
 function Home() {
   return (
     <div className="home">
-      Home Champion Select
       <ChampionSelect />
+      <Link to="/play">PLAY</Link>
     </div>
   );
 }
