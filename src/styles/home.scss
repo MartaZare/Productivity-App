@@ -1,0 +1,8 @@
+@import "./variables.scss";
+
+.home {
+  background-image: url("public/assets/other/champ-select.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include flex-column-center;
+}

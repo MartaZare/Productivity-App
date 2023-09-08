@@ -1,0 +1,47 @@
+@import "./variables.scss";
+
+.carousel-status,
+.control-dots {
+  display: none;
+}
+
+.thumbs {
+  @include flex-row-center;
+}
+
+#warrior,
+#athena,
+#druid,
+#alchemy,
+#assasin,
+#barbarian,
+#magician,
+#samurai,
+#monster {
+  height: $img-big;
+  width: $img-big;
+  animation: levitate 3s ease-in-out infinite;
+}
+
+@keyframes levitate {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.thumb > #warrior,
+.thumb > #athena,
+.thumb > #druid,
+.thumb > #alchemy,
+.thumb > #assasin,
+.thumb > #barbarian,
+.thumb > #magician,
+.thumb > #samurai {
+  height: $img-small;
+  width: $img-small;
+  animation: none;
+}

@@ -1,0 +1,30 @@
+@import "./variables.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  font-family: $main-font;
+}
+
+a,
+button {
+  text-decoration: none;
+  @include button;
+}
+
+a:hover,
+button:hover {
+  @include button-hover;
+}

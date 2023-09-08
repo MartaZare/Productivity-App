@@ -1,0 +1,18 @@
+.play {
+  background-image: url("public/assets/other/play.gif");
+  opacity: 0.9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include flex-column-center;
+
+  .animation {
+    @include flex-row-center;
+    gap: 50px;
+
+    p {
+      font-size: $font-big;
+      color: $main-font-fill-color;
+      -webkit-text-stroke: $font-border-thick $main-font-border-color;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  font-family: "Lilita One", cursive;
+}
+
+a,
+button {
+  text-decoration: none;
+  padding: 10px 50px 10px 50px;
+  border: none;
+  border-radius: 30px;
+  font-size: 50;
+  background-color: #e25788;
+  color: white;
+}
+
+a:hover,
+button:hover {
+  background-color: #a73b54;
+}/*# sourceMappingURL=base.css.map */

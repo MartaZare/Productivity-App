@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+
+$main-font: "Lilita One", cursive;
+
+$main-font-border-color: #7efffa;
+$main-font-fill-color: #1a1b2b;
+$accent-font-border-color: #db781a;
+$accnet-font-fill-color: #fac431;
+
+$font-border-thick: 5px;
+$font-border-thin: 3px;
+
+$font-small: 50;
+$font-medium: 100;
+$font-big: 150;
+
+$img-small: 70px;
+$img-medium: 350px;
+$img-big: 500px;
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button {
+  padding: 10px 50px 10px 50px;
+  border: none;
+  border-radius: 30px;
+  font-size: $font-small;
+  background-color: #e25788;
+  color: white;
+}
+
+@mixin button-hover {
+  background-color: #a73b54;
+}
