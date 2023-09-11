@@ -1,29 +1,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
-.carousel-status,
-.control-dots {
-  display: none;
+.champion-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-.thumbs {
+.champion-page h1 {
+  font-size: 100px;
+  color: #e25788;
+  -webkit-text-stroke: 1px #ffffff;
+}
+.champion-page .champion-page-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+.champion-page .champion-page-content .champion-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.champion-page .champion-page-content .champion-select .champion-select-window {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-#warrior,
-#athena,
-#druid,
-#alchemy,
-#assasin,
-#barbarian,
-#magician,
-#samurai,
-#monster {
+.champion-page .champion-page-content .champion-select .champion-select-window button {
+  padding: 0px;
+  width: 30px;
+  height: 330px;
+  font-size: 50px;
+  font-weight: 700;
+}
+.champion-page .champion-page-content .champion-select .champion-select-window .prev {
+  border-radius: 10px 0px 0px 10px;
+}
+.champion-page .champion-page-content .champion-select .champion-select-window .next {
+  border-radius: 0px 10px 10px 0px;
+}
+.champion-page .champion-page-content .champion-select .champion-select-window .all-champions {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 330px;
+  height: 330px;
+  border: solid 3px #e25788;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+.champion-page .champion-page-content .champion-select .champion-select-window .all-champions .champion {
+  display: flex;
+  justify-self: center;
+  align-self: flex-end;
+  transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+  height: 20rem;
+  width: 350px;
+}
+.champion-page .champion-page-content .displayed-champion {
   height: 500px;
   width: 500px;
   animation: levitate 3s ease-in-out infinite;
 }
-
 @keyframes levitate {
   0%, 100% {
     transform: translateY(0);
@@ -31,16 +71,4 @@
   50% {
     transform: translateY(-20px);
   }
-}
-.thumb > #warrior,
-.thumb > #athena,
-.thumb > #druid,
-.thumb > #alchemy,
-.thumb > #assasin,
-.thumb > #barbarian,
-.thumb > #magician,
-.thumb > #samurai {
-  height: 70px;
-  width: 70px;
-  animation: none;
 }/*# sourceMappingURL=champions.css.map */

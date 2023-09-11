@@ -4,8 +4,8 @@
   @include flex-column-center;
 
   p {
-    color: $accent-font-fill-color;
-    -webkit-text-stroke: $font-border-thin $accent-font-border-color;
+    color: $win-font-fill-color;
+    -webkit-text-stroke: $border-thin $win-border-color;
   }
 }
 
@@ -13,7 +13,7 @@
   @include flex-column-center;
   font-size: $font-big;
   color: $main-font-fill-color;
-  -webkit-text-stroke: $font-border-thick $main-font-border-color;
+  -webkit-text-stroke: $border-thick $main-border-color;
 
   p {
     font-size: $font-medium;

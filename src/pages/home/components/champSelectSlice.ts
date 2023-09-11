@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = "";
+const initialState = "warrior";
 
 export const champSelectSlice = createSlice({
   name: "champion",

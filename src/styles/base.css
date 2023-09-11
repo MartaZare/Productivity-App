@@ -7,14 +7,13 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-
-html {
-  height: 100vh;
-}
-
-body {
   font-family: "Lilita One", cursive;
+}
+
+html,
+.home,
+.play {
+  height: 100vh;
 }
 
 a,
@@ -23,9 +22,9 @@ button {
   padding: 10px 50px 10px 50px;
   border: none;
   border-radius: 30px;
-  font-size: 50;
+  font-size: 50px;
   background-color: #e25788;
-  color: white;
+  color: #ffffff;
 }
 
 a:hover,

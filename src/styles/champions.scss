@@ -1,47 +1,76 @@
 @import "./variables.scss";
 
-.carousel-status,
-.control-dots {
-  display: none;
-}
+.champion-page {
+  @include flex-column-center;
 
-.thumbs {
-  @include flex-row-center;
-}
-
-#warrior,
-#athena,
-#druid,
-#alchemy,
-#assasin,
-#barbarian,
-#magician,
-#samurai,
-#monster {
-  height: $img-big;
-  width: $img-big;
-  animation: levitate 3s ease-in-out infinite;
-}
-
-@keyframes levitate {
-  0%,
-  100% {
-    transform: translateY(0);
+  h1 {
+    font-size: $font-medium;
+    color: $accent-color;
+    -webkit-text-stroke: $border-extra-thin $accent-color-light;
   }
-  50% {
-    transform: translateY(-20px);
-  }
-}
 
-.thumb > #warrior,
-.thumb > #athena,
-.thumb > #druid,
-.thumb > #alchemy,
-.thumb > #assasin,
-.thumb > #barbarian,
-.thumb > #magician,
-.thumb > #samurai {
-  height: $img-small;
-  width: $img-small;
-  animation: none;
+  .champion-page-content {
+    @include flex-row-center;
+    gap: 50px;
+
+    .champion-select {
+      @include flex-column-center;
+      gap: 20px;
+
+      .champion-select-window {
+        @include flex-row-center;
+
+        button {
+          padding: 0px;
+          width: 30px;
+          height: 330px;
+          font-size: $font-small;
+          font-weight: 700;
+        }
+
+        .prev {
+          border-radius: 10px 0px 0px 10px;
+        }
+
+        .next {
+          border-radius: 0px 10px 10px 0px;
+        }
+
+        .all-champions {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow: hidden;
+          width: 330px;
+          height: 330px;
+          border: solid $border-medium $accent-color;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: $accent-color-light;
+
+          .champion {
+            display: flex;
+            justify-self: center;
+            align-self: flex-end;
+            transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+            height: 20rem;
+            width: $img-medium;
+          }
+        }
+      }
+    }
+    .displayed-champion {
+      height: $img-big;
+      width: $img-big;
+      animation: levitate 3s ease-in-out infinite;
+
+      @keyframes levitate {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+    }
+  }
 }
