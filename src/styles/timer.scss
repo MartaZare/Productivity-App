@@ -3,7 +3,8 @@
 .winner-message {
   @include flex-column-center;
 
-  p {
+  h1 {
+    font-size: $font-medium;
     color: $win-font-fill-color;
     -webkit-text-stroke: $border-thin $win-border-color;
   }

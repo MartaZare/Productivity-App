@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import RestTimer from "./RestTimer";
 
 function MainTimer() {
   const INITIAL_WORK_TIME = 0.1;
@@ -7,6 +6,7 @@ function MainTimer() {
   const INITIAL_ROUNDS = 1;
 
   const [rounds, setRounds] = useState(INITIAL_ROUNDS);
+  const [roundsCompleted, setRoundsCompleted] = useState(1);
   const [timeLeft, setTimeLeft] = useState<number>(INITIAL_WORK_TIME * 60);
   const [pause, setPause] = useState(false);
   const [workMode, setWorkMode] = useState(true);
@@ -29,6 +29,7 @@ function MainTimer() {
         setRounds((prev) => prev + 1);
       } else {
         setWorkMode(true);
+        setPause(true);
         setTimeLeft(INITIAL_WORK_TIME * 60);
       }
     }
@@ -38,44 +39,59 @@ function MainTimer() {
     setPause((prev) => !prev);
   }
 
+  useEffect(() => {
+    if (workMode) {
+      if (timeLeft < INITIAL_WORK_TIME) {
+        setRoundsCompleted((prev) => prev + 1);
+        console.log(roundsCompleted);
+      }
+    }
+  }, [workMode, timeLeft]);
+
   return (
     <>
-      {rounds <= 4 ? (
+      {rounds <= 4 && (
         <>
-          {timeLeft >= 0 ? (
+          {timeLeft > 0 && (
             <>
               <div className="work-status">
-                {workMode ? <p> Round {rounds}</p> : <p>Rest</p>}
                 {workMode ? (
-                  <img
-                    id="fight"
-                    src="/assets/other/swords.png"
-                    alt="fight-icon"
-                  />
+                  <>
+                    <p> Round {rounds}</p>
+                    <img
+                      id="fight"
+                      src="/assets/other/swords.png"
+                      alt="fight-icon"
+                    />
+                  </>
                 ) : (
-                  <img
-                    id="rest"
-                    src="/assets/other/lotus.png"
-                    alt="lotus-icon"
-                  />
-                )}{" "}
+                  <>
+                    <p>Rest</p>
+                    <img
+                      id="rest"
+                      src="/assets/other/lotus.png"
+                      alt="lotus-icon"
+                    />
+                  </>
+                )}
+
                 <p>
                   {minutes} : {seconds < 10 ? `0${seconds}` : seconds}
                 </p>
               </div>
-              <button onClick={handlePause}>
-                {pause ? "Paused" : "Pause"}
-              </button>
+              {timeLeft !== 0 && (
+                <button onClick={handlePause}>
+                  {pause ? "Continue" : "Pause"}
+                </button>
+              )}
             </>
-          ) : null}
+          )}
         </>
-      ) : (
-        <>{rounds <= 4 && <RestTimer />}</>
       )}
 
       {rounds > 4 && (
         <div className="winner-message">
-          <p>CONGRATULATIONS!</p>
+          <h1>CONGRATULATIONS!</h1>
           <img id="winner" src="/assets/other/winner.png" alt="winnner-icon" />
         </div>
       )}

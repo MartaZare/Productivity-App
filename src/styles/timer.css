@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
 }
-.winner-message p {
+.winner-message h1 {
+  font-size: 100px;
   color: #fac431;
   -webkit-text-stroke: 3px #db781a;
 }
