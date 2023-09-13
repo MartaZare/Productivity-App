@@ -1,6 +1,10 @@
-@import "../styles/variables.css";
-@import "../styles/base.css";
-@import "../styles/home.css";
-@import "../styles/champions.css";
-@import "../styles/play.css";
-@import "../styles/timer.css";
+@import "../styles/base";
+@import "../pages/home/champion-select/champions";
+@import "../pages/home/home";
+@import "../pages/home/user-log-in/log-in-form";
+@import "../styles/mixins";
+@import "../pages/play/play";
+@import "../styles/reset-styles";
+@import "../pages/play/timer/timer";
+@import "../styles/variables";
+@import "../pages/play/message/winner-message";

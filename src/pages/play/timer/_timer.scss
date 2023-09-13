@@ -1,0 +1,15 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.work-status {
+  @include flex-column-center;
+  @include main-title-style;
+
+  p {
+    font-size: $font-medium;
+  }
+
+  img {
+    width: $img-medium;
+  }
+}

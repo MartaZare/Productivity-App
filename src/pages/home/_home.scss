@@ -1,8 +1,9 @@
-@import "./variables.scss";
+@import "../../styles/mixins";
 
 .home {
+  @include flex-column-center;
+  height: 100vh;
   background-image: url("public/assets/other/champ-select.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  @include flex-column-center;
 }

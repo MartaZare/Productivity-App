@@ -1,0 +1,21 @@
+@import "./variables";
+@import "./mixins";
+
+* {
+  font-family: $main-font;
+}
+
+html {
+  height: 100vh;
+}
+
+a,
+button {
+  text-decoration: none;
+  @include button;
+}
+
+a:hover,
+button:hover {
+  @include button-hover;
+}

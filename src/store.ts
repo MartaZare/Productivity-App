@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import champSelectSlice from "./pages/home/components/champSelectSlice";
+import champSelectSlice from "./pages/home/champion-select/champSelectSlice";
 
 const store = configureStore({ reducer: { champion: champSelectSlice } });
 

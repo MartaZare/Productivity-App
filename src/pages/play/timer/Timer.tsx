@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import WinnerMessage from "../message/WinnerMessage";
 
 function MainTimer() {
   const INITIAL_WORK_TIME = 0.1;
@@ -89,12 +90,7 @@ function MainTimer() {
         </>
       )}
 
-      {rounds > 4 && (
-        <div className="winner-message">
-          <h1>CONGRATULATIONS!</h1>
-          <img id="winner" src="/assets/other/winner.png" alt="winnner-icon" />
-        </div>
-      )}
+      {rounds > 4 && <WinnerMessage />}
     </>
   );
 }

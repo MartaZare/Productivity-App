@@ -1,0 +1,16 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.winner-message {
+  @include flex-column-center;
+
+  h1 {
+    font-size: $font-small;
+    color: $win-font-fill-color;
+    -webkit-text-stroke: $border-extra-thin $win-border-color;
+  }
+
+  img {
+    width: 200px;
+  }
+}

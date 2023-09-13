@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "../../styles/variables";
 
 .play {
   background-image: url("public/assets/other/play.gif");
@@ -12,9 +12,7 @@
     gap: 50px;
 
     p {
-      font-size: $font-big;
-      color: $main-font-fill-color;
-      -webkit-text-stroke: $border-thick $main-border-color;
+      @include main-title-style;
     }
   }
 }

@@ -1,4 +1,5 @@
-@import "./variables.scss";
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
 
 .champion-page {
   @include flex-column-center;
@@ -42,7 +43,7 @@
           overflow: hidden;
           width: 330px;
           height: 330px;
-          border: solid $border-medium $accent-color;
+          border: solid $border-thin $accent-color;
           background-color: rgba(0, 0, 0, 0.5);
           color: $accent-color-light;
 

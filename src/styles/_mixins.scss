@@ -1,0 +1,47 @@
+@import "./variables";
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button {
+  padding: 10px 50px 10px 50px;
+  border: none;
+  border-radius: 30px;
+  font-size: $font-small;
+  background-color: $accent-color;
+  color: $accent-color-light;
+}
+
+@mixin button-hover {
+  background-color: $accent-color-dark;
+}
+
+@mixin main-title-style {
+  font-size: $font-big;
+  color: $main-font-fill-color;
+  -webkit-text-stroke: $border-thick $main-border-color;
+}
+
+@mixin input {
+  font-size: 50px;
+  color: $main-font-fill-color;
+  padding: 10px 0px;
+  border-radius: 20px;
+  border: solid $border-thick $main-font-fill-color;
+}
+
+@mixin input-focus {
+  outline: none;
+  border: solid $border-thick $accent-color;
+  background-color: rgb(249, 240, 230);
+}
