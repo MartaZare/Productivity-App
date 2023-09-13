@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 
 .play {
+  height: 100vh;
   background-image: url("public/assets/other/play.gif");
   opacity: 0.9;
   background-size: cover;
@@ -11,8 +12,22 @@
     @include flex-row-center;
     gap: 50px;
 
+    img {
+      animation: levitate 3s ease-in-out infinite;
+    }
+
     p {
       @include main-title-style;
+    }
+
+    @keyframes levitate {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
     }
   }
 }

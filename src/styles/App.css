@@ -165,6 +165,7 @@ button:hover {
 }
 
 .play {
+  height: 100vh;
   background-image: url("public/assets/other/play.gif");
   opacity: 0.9;
   background-size: cover;
@@ -180,10 +181,21 @@ button:hover {
   justify-content: center;
   gap: 50px;
 }
+.play .animation img {
+  animation: levitate 3s ease-in-out infinite;
+}
 .play .animation p {
   font-size: 150px;
   color: #1a1b2b;
   -webkit-text-stroke: 5px #7efffa;
+}
+@keyframes levitate {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 *,
