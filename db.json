@@ -2,7 +2,8 @@
   "users": [
     {
       "userId": "",
-      "championImg": ""
+      "username":"",
+      "password": ""
     }
   ],
 

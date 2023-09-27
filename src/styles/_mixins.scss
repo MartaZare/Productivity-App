@@ -32,6 +32,12 @@
   -webkit-text-stroke: $border-thick $main-border-color;
 }
 
+@mixin small-title-style {
+  font-size: $font-medium;
+  color: $main-font-fill-color;
+  -webkit-text-stroke: $border-extra-thin $main-border-color;
+}
+
 @mixin input {
   font-size: 50px;
   color: $main-font-fill-color;
