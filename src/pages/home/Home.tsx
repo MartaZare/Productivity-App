@@ -1,21 +1,18 @@
+import { useSelector } from "react-redux";
 import ChampionSelect from "./champion-select/ChampionSelect";
 import Login from "./login/Login";
-import Register from "./register/Register";
-import UserLogIn from "./user-log-in/UserLogIn";
-import { useState } from "react";
+import { RootState } from "../../store";
 
 export default function Home() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = useSelector((state: RootState) => state.login);
 
   return (
     <div className="home">
       {isLoggedIn ? (
         <>
-          <Register />
           <ChampionSelect />
         </>
       ) : (
-        // <UserLogIn setIsLoggedIn={setIsLoggedIn} />
         <>
           <Login />
         </>

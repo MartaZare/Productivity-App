@@ -14,14 +14,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 * {
   font-family: "Lilita One", cursive;
 }
 
 html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
+  background-image: url("public/assets/other/champ-select.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 a,
@@ -203,58 +208,6 @@ h1 {
   50% {
     transform: translateY(-20px);
   }
-}
-
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-image: url("public/assets/other/champ-select.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.logInForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-around;
-  max-width: 600px;
-  height: 60%;
-}
-.logInForm h1 {
-  font-size: 150px;
-  color: #1a1b2b;
-  -webkit-text-stroke: 5px #7efffa;
-  padding: 0;
-}
-.logInForm .log-in-label-input {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-}
-.logInForm .log-in-label-input label {
-  color: #1a1b2b;
-  -webkit-text-stroke: 1px #7efffa;
-  font-size: 50px;
-}
-.logInForm .log-in-label-input input {
-  max-width: 450px;
-  font-size: 50px;
-  color: #1a1b2b;
-  padding: 10px 0px;
-  border-radius: 20px;
-  border: solid 5px #1a1b2b;
-}
-.logInForm .log-in-label-input input:focus {
-  outline: none;
-  border: solid 5px #e25788;
-  background-color: rgb(249, 240, 230);
 }
 
 .play {
