@@ -1,4 +1,5 @@
 import ChampionSelect from "./champion-select/ChampionSelect";
+import Login from "./login/Login";
 import Register from "./register/Register";
 import UserLogIn from "./user-log-in/UserLogIn";
 import { useState } from "react";
@@ -10,12 +11,14 @@ export default function Home() {
     <div className="home">
       {isLoggedIn ? (
         <>
-        <Register />
-        <ChampionSelect />
+          <Register />
+          <ChampionSelect />
         </>
       ) : (
-       // <UserLogIn setIsLoggedIn={setIsLoggedIn} />
-       <Register />
+        // <UserLogIn setIsLoggedIn={setIsLoggedIn} />
+        <>
+          <Login />
+        </>
       )}
     </div>
   );
