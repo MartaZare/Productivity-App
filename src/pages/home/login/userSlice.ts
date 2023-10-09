@@ -1,32 +1,48 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { User } from "../../../Types";
 
-interface UserState {
-  email: string;
-  password: string;
-  role: string;
-  token: string;
-}
+const persistedValue = localStorage.getItem("persist");
 
-const initialState: UserState = {
+const initialState: User = {
   email: "",
   password: "",
   role: "",
   token: "",
+  persist: persistedValue ? JSON.parse(persistedValue) : false,
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUserObject: (state, action: PayloadAction<UserState>) => {
+    setUserObject: (state, action: PayloadAction<User>) => {
       return {
         ...state,
         ...action.payload,
       };
     },
+    setAccessToken: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        token: action.payload,
+      };
+    },
+    setRole: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        role: action.payload,
+      };
+    },
+    setPersist: (state, action: PayloadAction<boolean>) => {
+      return {
+        ...state,
+        persist: action.payload,
+      };
+    },
   },
 });
 
-export const { setUserObject } = userSlice.actions;
+export const { setUserObject, setAccessToken, setRole, setPersist } =
+  userSlice.actions;
 
 export default userSlice.reducer;
