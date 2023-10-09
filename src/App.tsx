@@ -8,14 +8,13 @@ import Admin from "./pages/Admin";
 import Play from "./pages/play/Play";
 import Missing from "./pages/Missing";
 import Stats from "./pages/stats/Stats";
-import Layout from "./Layout";
 import PersistLogin from "./PersistLogin";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Login />}>
           <Route path="log-in" element={<Login />} />
           <Route path="register" element={<Register />} />
 

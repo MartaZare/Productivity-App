@@ -33,10 +33,10 @@ export const userSlice = createSlice({
         role: action.payload,
       };
     },
-    setPersist: (state, action: PayloadAction<boolean>) => {
+    setPersist: (state) => {
       return {
         ...state,
-        persist: action.payload,
+        persist: !state.persist,
       };
     },
   },

@@ -82,7 +82,7 @@ export default function Login() {
   };
 
   const togglePersist = () => {
-    dispatch(setPersist(true));
+    dispatch(setPersist());
   };
 
   useEffect(() => {
