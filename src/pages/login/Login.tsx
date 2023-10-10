@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPersist, setUserObject } from "./userSlice";
-import axios from "../../../api/axios";
+import { setPersist, setUserObject } from "../../reducers/userSlice";
+import axios from "../../api/axios";
 import jwt_decode from "jwt-decode";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { setIsLoggedIn } from "./loginSlice";
-import { RootState } from "../../../store";
+import { setIsLoggedIn } from "../../reducers/loginSlice";
+import { RootState } from "../../store";
 
 type JWTPayload = {
   "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": string;

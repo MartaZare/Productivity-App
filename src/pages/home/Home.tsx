@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import ChampionSelect from "./champion-select/ChampionSelect";
+import ChampionSelect from "../champion-select/ChampionSelect";
 import useLogout from "../../hooks/useLogout";
 
 export default function Home() {

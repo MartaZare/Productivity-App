@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { User } from "./Types";
-import useAxiosPrivate from "./hooks/useAxiosPrivate";
+import { User } from "../../data/Types";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Users() {

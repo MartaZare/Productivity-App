@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import champSelectSlice from "./pages/home/champion-select/champSelectSlice";
-import userSlice from "./pages/home/login/userSlice";
-import loginSlice from "./pages/home/login/loginSlice";
+import champSelectSlice from "./reducers/champSelectSlice";
+import userSlice from "./reducers/userSlice";
+import loginSlice from "./reducers/loginSlice";
 
 const store = configureStore({
   reducer: { champion: champSelectSlice, user: userSlice, login: loginSlice },
+  devTools: false,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

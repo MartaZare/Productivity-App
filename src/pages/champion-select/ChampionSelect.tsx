@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { chooseChampion } from "./champSelectSlice";
-import { RootState } from "../../../store";
+import { chooseChampion } from "../../reducers/champSelectSlice";
+import { RootState } from "../../store";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

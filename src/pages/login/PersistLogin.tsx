@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import useRefreshToken from "./hooks/useRefreshToken";
+import useRefreshToken from "../../hooks/useRefreshToken";
 import { useSelector } from "react-redux";
-import { RootState } from "./store";
+import { RootState } from "../../store";
 import { Outlet } from "react-router-dom";
 
 function PersistLogin() {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MainTimer from "./timer/Timer";
+import MainTimer from "../../components/timer/Timer";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 

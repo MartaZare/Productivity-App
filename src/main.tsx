@@ -4,6 +4,11 @@ import App from "./App.tsx";
 import { Provider } from "react-redux";
 import store from "./store.ts";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+
+if (process.env.NODE_ENV === "production") {
+  disableReactDevTools();
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>

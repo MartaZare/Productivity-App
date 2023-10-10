@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { User } from "../../../Types";
+import { User } from "../data/Types";
 
 const persistedValue = localStorage.getItem("persist");
 

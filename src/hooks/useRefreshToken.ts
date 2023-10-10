@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import axios from "../api/axios";
-import { setAccessToken, setRole } from "../pages/home/login/userSlice";
+import { setAccessToken, setRole } from "../reducers/userSlice";
 
 const useRefreshToken = () => {
   const dispatch = useDispatch();

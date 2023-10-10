@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import "./styles/App.css";
 import Home from "./pages/home/Home";
-import Login from "./pages/home/login/Login";
-import Register from "./pages/home/register/Register";
+
 import RequireAuth from "./pages/RequireAuth";
-import Admin from "./pages/Admin";
+import Admin from "./pages/admin/Admin";
 import Play from "./pages/play/Play";
 import Missing from "./pages/Missing";
 import Stats from "./pages/stats/Stats";
-import PersistLogin from "./PersistLogin";
+import PersistLogin from "./pages/login/PersistLogin";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 function App() {
   return (
