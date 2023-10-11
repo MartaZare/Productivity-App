@@ -5,7 +5,8 @@ const initialState: Character = {
   userId: "1",
   nickname: "MarshMellow",
   champion: "",
-  sesssions: 2,
+  sesssions: 16,
+  level: 1,
 };
 
 const characterSlice = createSlice({
@@ -24,10 +25,14 @@ const characterSlice = createSlice({
       ...state,
       sessions: action.payload,
     }),
+    levelUp: (state) => ({
+      ...state,
+      level: state.level + 1,
+    }),
   },
 });
 
 export default characterSlice.reducer;
 
-export const { setCharacter, setChampion, setSessions } =
+export const { setCharacter, setChampion, setSessions, levelUp } =
   characterSlice.actions;

@@ -11,4 +11,5 @@ export type Character = {
   nickname: string;
   champion: string;
   sesssions: number;
+  level: number;
 };

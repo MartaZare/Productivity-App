@@ -13,3 +13,20 @@
     width: $img-small;
   }
 }
+
+.play-btns {
+  display: flex;
+  gap: 20px;
+  button {
+    background-color: #17a6a1;
+  }
+  button:hover {
+    background-color: #0d5f5c;
+  }
+  a {
+    background-color: #d01f48;
+  }
+  a:hover {
+    background-color: #700f26;
+  }
+}

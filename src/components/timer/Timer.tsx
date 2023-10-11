@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import WinnerMessage from "../message/WinnerMessage";
+import { Link } from "react-router-dom";
 
 function MainTimer() {
   const INITIAL_WORK_TIME = 0.1;
@@ -80,11 +81,14 @@ function MainTimer() {
                   {minutes} : {seconds < 10 ? `0${seconds}` : seconds}
                 </p>
               </div>
-              {timeLeft !== 0 && (
-                <button onClick={handlePause}>
-                  {pause ? "Continue" : "Pause"}
-                </button>
-              )}
+              <div className="play-btns">
+                {workMode && <Link to="/">Surrender</Link>}
+                {timeLeft !== 0 && (
+                  <button onClick={handlePause}>
+                    {pause ? "Continue" : "Pause"}
+                  </button>
+                )}
+              </div>
             </>
           )}
         </>

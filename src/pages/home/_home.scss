@@ -1,1 +1,19 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
+
+.home {
+  @include flex-row-center;
+  width: 100%;
+  gap: 10%;
+  .user {
+    img {
+      width: $img-medium;
+    }
+
+    h2 {
+      color: $accent-color-light;
+      font-size: $font-small;
+      text-align: center;
+    }
+  }
+}
