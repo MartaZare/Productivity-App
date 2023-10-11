@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import champSelectSlice from "./reducers/champSelectSlice";
 import userSlice from "./reducers/userSlice";
 import loginSlice from "./reducers/loginSlice";
+import characterSlice from "./reducers/characterSlice";
 
 const store = configureStore({
-  reducer: { champion: champSelectSlice, user: userSlice, login: loginSlice },
+  reducer: { user: userSlice, login: loginSlice, character: characterSlice },
   devTools: false,
 });
 

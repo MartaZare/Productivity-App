@@ -1,14 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
-import { chooseChampion } from "../../reducers/champSelectSlice";
-import { RootState } from "../../store";
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { setChampion as setChampionInRedux } from "../../reducers/characterSlice";
 
-function ChampionSelect() {
+interface ChampionSelectProps {
+  setChampionSelected: (arg: boolean) => void;
+}
+
+function ChampionSelect(props: ChampionSelectProps) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const selection = useSelector((state: RootState) => state.champion);
   const [imgIndex, setImgIndex] = useState(0);
+  const [champion, setChampion] = useState("");
 
   const images = [
     { name: "warrior" },
@@ -35,8 +36,17 @@ function ChampionSelect() {
     return () => clearInterval(interval);
   });
 
-  const handleClick = (name: string) => {
-    dispatch(chooseChampion(name));
+  const chooseChampion = (name: string) => {
+    setChampion(name);
+  };
+
+  const handleClick = () => {
+    dispatch(setChampionInRedux(champion));
+    props.setChampionSelected(true);
+    if (!champion) {
+      dispatch(setChampionInRedux("warrior"));
+      props.setChampionSelected(true);
+    }
   };
 
   return (
@@ -58,7 +68,7 @@ function ChampionSelect() {
                   src={`assets/champions/${image.name}.png`}
                   alt={`${image.name}-image`}
                   style={{ transform: `translate(-${imgIndex * 100}%)` }}
-                  onClick={() => handleClick(image.name)}
+                  onClick={() => chooseChampion(image.name)}
                 />
               ))}
             </div>
@@ -72,14 +82,21 @@ function ChampionSelect() {
             </button>
           </div>
         </div>
-
-        <img
-          className="displayed-champion"
-          src={`assets/champions/${selection}.png`}
-          alt={`${selection}-image`}
-        />
+        {champion ? (
+          <img
+            className="displayed-champion"
+            src={`assets/champions/${champion}.png`}
+            alt={`${champion}-image`}
+          />
+        ) : (
+          <img
+            className="displayed-champion"
+            src={`assets/champions/warrior.png`}
+            alt={`warrior-image`}
+          />
+        )}
       </div>
-      <button onClick={() => navigate("/play")}>CONTINUE</button>
+      <button onClick={handleClick}>CONTINUE</button>
     </div>
   );
 }

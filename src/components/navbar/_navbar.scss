@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: $accent-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  .nav-link {
+    background-color: transparent;
+    border-radius: 0;
+    width: 100%;
+    text-align: center;
+  }
+}

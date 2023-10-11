@@ -5,3 +5,10 @@ export type User = {
   token: string;
   persist: boolean;
 };
+
+export type Character = {
+  userId: string;
+  nickname: string;
+  champion: string;
+  sesssions: number;
+};

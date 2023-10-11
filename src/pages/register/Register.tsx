@@ -13,8 +13,10 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "/api/Authorization/RegisterUser";
 
 const Register = () => {
+  const nicknameRef = useRef<HTMLInputElement>(null);
   const userRef = useRef<HTMLInputElement>(null);
   const errRef = useRef<HTMLInputElement>(null);
+  const [nickname, setNickname] = useState("");
 
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
@@ -33,7 +35,7 @@ const Register = () => {
 
   useEffect(() => {
     if (userRef) {
-      userRef.current?.focus();
+      nicknameRef.current?.focus();
     }
   }, []);
 
@@ -57,10 +59,14 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await axios.post(REGISTER_URL, JSON.stringify({ email, password }), {
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true,
-      });
+      await axios.post(
+        REGISTER_URL,
+        JSON.stringify({ nickname, email, password }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
 
       setSuccess(true);
       setEmail("");
@@ -82,7 +88,7 @@ const Register = () => {
         <section>
           <h1>Success!</h1>
           <p>
-            <Link to="/log-in">Sign In</Link>
+            <Link to="/login">Sign In</Link>
           </p>
         </section>
       ) : (
@@ -96,8 +102,19 @@ const Register = () => {
           </p>
           <h1>Register</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username">
-              Username:
+            <label htmlFor="nickname">Nickname:</label>
+            <input
+              type="text"
+              id="nickname"
+              ref={nicknameRef}
+              autoComplete="off"
+              onChange={(e) => setNickname(e.target.value)}
+              value={nickname}
+              required
+            />
+
+            <label htmlFor="email">
+              Email:
               <FontAwesomeIcon
                 icon={faCheck}
                 className={validEmail ? "valid" : "hide"}
@@ -109,7 +126,7 @@ const Register = () => {
             </label>
             <input
               type="text"
-              id="username"
+              id="email"
               ref={userRef}
               autoComplete="off"
               onChange={(e) => setEmail(e.target.value)}
@@ -222,7 +239,7 @@ const Register = () => {
             Already registered?
             <br />
             <span className="line">
-              <Link to="/log-in">Sign In</Link>
+              <Link to="/login">Sign In</Link>
             </span>
           </p>
         </section>

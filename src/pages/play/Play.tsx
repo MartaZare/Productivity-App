@@ -1,35 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MainTimer from "../../components/timer/Timer";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import ChampionSelect from "../champion-select/ChampionSelect";
 
 function Play() {
   const [playMode, setPlayMode] = useState(false);
-  const select = useSelector((state: RootState) => state.champion);
+  const champion = useSelector((state: RootState) => state.character.champion);
+  const [championSelected, setChampionSelected] = useState(false);
 
   return (
     <div className="play">
-      {playMode ? (
-        <MainTimer />
+      {championSelected ? (
+        playMode ? (
+          <MainTimer />
+        ) : (
+          <>
+            <div className="animation">
+              <img
+                id={`${champion}`}
+                src={`assets/champions/${champion}.png`}
+                alt={`${champion}`}
+                style={{ width: "400px", height: "400px" }}
+              />
+              <p>VS</p>
+              <img
+                id="monster"
+                src={`assets/other/hydra.png`}
+                alt="monster"
+                style={{ width: "400px", height: "400px" }}
+              />
+            </div>
+            <button onClick={() => setPlayMode(true)}>Play</button>
+          </>
+        )
       ) : (
-        <>
-          <div className="animation">
-            <img
-              id={`${select}`}
-              src={`assets/champions/${select}.png`}
-              alt={`${select}`}
-              style={{ width: "400px", height: "400px" }}
-            />
-            <p>VS</p>
-            <img
-              id="monster"
-              src={`assets/other/hydra.png`}
-              alt="monster"
-              style={{ width: "400px", height: "400px" }}
-            />
-          </div>
-          <button onClick={() => setPlayMode(true)}>Play</button>
-        </>
+        <ChampionSelect setChampionSelected={setChampionSelected} />
       )}
     </div>
   );

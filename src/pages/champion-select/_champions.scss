@@ -1,7 +1,8 @@
-@import "../../../styles/variables";
-@import "../../../styles/mixins";
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
 .champion-page {
+  margin-top: 50px;
   @include flex-column-center;
 
   h1 {

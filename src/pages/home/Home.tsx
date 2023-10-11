@@ -13,7 +13,6 @@ export default function Home() {
 
   return (
     <section className="home">
-      <ChampionSelect />
       <button onClick={signOut}>Sign Out</button>
     </section>
   );
