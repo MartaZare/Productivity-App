@@ -15,7 +15,7 @@
 }
 
 .play-btns {
-  display: flex;
+  @include flex-row-center;
   gap: 20px;
   button {
     background-color: #17a6a1;
@@ -23,10 +23,10 @@
   button:hover {
     background-color: #0d5f5c;
   }
-  a {
+  .surrender-btn {
     background-color: #d01f48;
   }
-  a:hover {
+  .surrender-btn:hover {
     background-color: #700f26;
   }
 }

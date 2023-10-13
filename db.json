@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "email": "",
+      "password": "",
+      "role": "",
+      "token": ""
+    }
+  ],
+  "characters": [
+    {
+      "id": 1,
+      "userId": "1",
+      "nickname": "MarshMellow",
+      "champion": "warrior",
+      "time": 225,
+      "level": 3
+    }
+  ]
+}

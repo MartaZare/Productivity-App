@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./assets/App.css";
 import Home from "./pages/home/Home";
 import RequireAuth from "./pages/RequireAuth";
@@ -10,11 +10,14 @@ import PersistLogin from "./pages/login/PersistLogin";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Navbar from "./components/navbar/Navbar";
+import Timer from "./components/timer/Timer";
 
 function App() {
+  const location = useLocation();
+  const timerPage = location.pathname === "/timer";
   return (
     <>
-      <Navbar />
+      {!timerPage && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />}>
@@ -40,6 +43,7 @@ function App() {
           </Route> */}
         </Route>
         <Route path="play" element={<Play />} />
+        <Route path="timer" element={<Timer />} />
         <Route path="stats" element={<Stats />} />
         <Route path="admin" element={<Admin />} />
         <Route path="*" element={<Missing />} />

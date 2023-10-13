@@ -1,4 +1,5 @@
 export type User = {
+  id: string;
   email: string;
   password: string;
   role: string;
@@ -7,9 +8,10 @@ export type User = {
 };
 
 export type Character = {
+  id: string;
   userId: string;
   nickname: string;
   champion: string;
-  sesssions: number;
+  time: number;
   level: number;
 };

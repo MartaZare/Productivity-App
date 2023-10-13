@@ -4,6 +4,7 @@ import { User } from "../data/Types";
 const persistedValue = localStorage.getItem("persist");
 
 const initialState: User = {
+  id: "",
   email: "",
   password: "",
   role: "",

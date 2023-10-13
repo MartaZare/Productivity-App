@@ -5,6 +5,7 @@
   @include flex-row-center;
   width: 100%;
   gap: 10%;
+
   .user {
     img {
       width: $img-medium;
@@ -14,6 +15,33 @@
       color: $accent-color-light;
       font-size: $font-small;
       text-align: center;
+    }
+  }
+
+  .stats {
+    @include flex-column-center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 3%;
+    color: $accent-color-light;
+    font-size: $font-small;
+    width: 40%;
+
+    h2 {
+      text-align: center;
+      font-size: $font-extra-big;
+      line-height: $font-extra-big;
+      color: $accent-color;
+      -webkit-text-stroke: $border-thin $accent-color-light;
+    }
+
+    .stats-elem-wrapper {
+      @include flex-row-center;
+      justify-content: space-between;
+      width: 100%;
+      h3 {
+        color: $accent-color;
+      }
     }
   }
 }

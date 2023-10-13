@@ -2,11 +2,12 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Character } from "../data/Types";
 
 const initialState: Character = {
-  userId: "1",
-  nickname: "MarshMellow",
+  id: "",
+  userId: "",
+  nickname: "",
   champion: "",
-  sesssions: 16,
-  level: 1,
+  time: 0,
+  level: 0,
 };
 
 const characterSlice = createSlice({
@@ -21,9 +22,9 @@ const characterSlice = createSlice({
       ...state,
       champion: action.payload,
     }),
-    setSessions: (state, action: PayloadAction<number>) => ({
+    setTime: (state, action: PayloadAction<number>) => ({
       ...state,
-      sessions: action.payload,
+      time: action.payload,
     }),
     levelUp: (state) => ({
       ...state,
@@ -34,5 +35,5 @@ const characterSlice = createSlice({
 
 export default characterSlice.reducer;
 
-export const { setCharacter, setChampion, setSessions, levelUp } =
+export const { setCharacter, setChampion, setTime, levelUp } =
   characterSlice.actions;
