@@ -1,9 +1,21 @@
 {
   "users": [
     {
-      "email": "",
-      "password": "",
-      "role": "",
+      "email": "johndoe@gmail.com",
+      "password": "12kj.,44f",
+      "role": "user",
+      "token": ""
+    },
+    {
+      "email": "aleksandrastewart@yahoo.com",
+      "password": "fsdkfdksj544",
+      "role": "user",
+      "token": ""
+    },
+    {
+      "email": "rock11223@gmail.com",
+      "password": "Mfsdkfssdfsdfdksj544",
+      "role": "user",
       "token": ""
     }
   ],
@@ -13,7 +25,7 @@
       "userId": "1",
       "nickname": "MarshMellow",
       "champion": "warrior",
-      "time": 225,
+      "time": 250,
       "level": 3
     }
   ]

@@ -15,6 +15,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 *,
 *::before,
 *::after {
@@ -305,11 +307,47 @@ h1 {
   }
 }
 
+.admin-page {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.admin-content {
+  width: 75%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.admin-content h1 {
+  font-size: 80px;
+  color: #1a1b2b;
+  -webkit-text-stroke: 1px #7efffa;
+}
+.admin-content table {
+  width: 100vh;
+  border-collapse: collapse;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 30px;
+  border: hidden;
+  border-radius: 20px;
+}
+.admin-content th,
+.admin-content td {
+  border: 1px solid;
+  padding: 10px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  background-color: #e25788;
   position: fixed;
   top: 0;
   left: 0;

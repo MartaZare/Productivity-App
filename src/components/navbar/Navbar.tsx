@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   function colorLink(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    (event.target as HTMLAnchorElement).style.backgroundColor = "#a73b54";
+    (event.target as HTMLAnchorElement).style.backgroundColor =
+      "rgba(226, 87, 136)";
 
     const links = document.querySelectorAll(
       ".nav-link"
     ) as NodeListOf<HTMLAnchorElement>;
     links.forEach((link) => {
       if (link !== event.target) {
-        link.style.backgroundColor = "#e25788";
+        link.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
       }
     });
   }
