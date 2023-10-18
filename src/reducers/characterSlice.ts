@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Character } from "../data/Types";
 
 const initialState: Character = {
-  id: "",
+  id: "1",
   userId: "",
   nickname: "",
   champion: "",

@@ -4,8 +4,9 @@ import Home from "./pages/home/Home";
 import RequireAuth from "./pages/RequireAuth";
 import Admin from "./pages/admin/Admin";
 import Play from "./pages/play/Play";
+import History from "./pages/history/History";
 import Missing from "./pages/Missing";
-import Stats from "./pages/stats/Stats";
+import Stats from "./pages/history/History";
 import PersistLogin from "./pages/login/PersistLogin";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
@@ -44,7 +45,7 @@ function App() {
         </Route>
         <Route path="play" element={<Play />} />
         <Route path="timer" element={<Timer />} />
-        <Route path="stats" element={<Stats />} />
+        <Route path="history" element={<History />} />
         <Route path="admin" element={<Admin />} />
         <Route path="*" element={<Missing />} />
       </Routes>

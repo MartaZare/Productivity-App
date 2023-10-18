@@ -15,3 +15,15 @@ export type Character = {
   time: number;
   level: number;
 };
+
+export type Session = {
+  id: string;
+  characterId: string;
+  date: string;
+  time: number;
+};
+
+export type History = {
+  date: string;
+  time: number;
+};

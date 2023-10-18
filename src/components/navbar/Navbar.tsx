@@ -24,8 +24,8 @@ function Navbar() {
         <Link to="/play" className="nav-link" onClick={colorLink}>
           Play
         </Link>
-        <Link to="/stats" className="nav-link" onClick={colorLink}>
-          Stats
+        <Link to="/history" className="nav-link" onClick={colorLink}>
+          History
         </Link>
         <Link to="/admin" className="nav-link" onClick={colorLink}>
           Admin

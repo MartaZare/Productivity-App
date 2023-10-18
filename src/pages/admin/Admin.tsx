@@ -2,8 +2,8 @@ import Users from "./Users";
 
 function Admin() {
   return (
-    <section className="admin-page">
-      <div className="admin-content">
+    <section className="page">
+      <div className="content">
         <h1>ADMIN PAGE</h1>
         <Users />
       </div>

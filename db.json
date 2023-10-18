@@ -24,9 +24,131 @@
       "id": 1,
       "userId": "1",
       "nickname": "MarshMellow",
-      "champion": "warrior",
-      "time": 250,
-      "level": 3
+      "champion": "athena",
+      "time": 350,
+      "level": 4
+    }
+  ],
+  "sessions": [
+    {
+      "id": 1,
+      "characterId": "1",
+      "date": "2022-02-02",
+      "time": 25
+    },
+    {
+      "id": 2,
+      "characterId": "1",
+      "date": "2022-02-02",
+      "time": 50
+    },
+    {
+      "id": 3,
+      "characterId": "1",
+      "date": "2022-02-03",
+      "time": 100
+    },
+    {
+      "id": 4,
+      "characterId": "1",
+      "date": "2022-02-04",
+      "time": 200
+    },
+    {
+      "id": 5,
+      "characterId": "1",
+      "date": "2022-02-04",
+      "time": 25
+    },
+    {
+      "id": 6,
+      "characterId": "1",
+      "date": "2022-02-04",
+      "time": 50
+    },
+    {
+      "id": 7,
+      "characterId": "1",
+      "date": "2022-02-08",
+      "time": 250
+    },
+    {
+      "id": 8,
+      "characterId": "1",
+      "date": "2022-03-01",
+      "time": 0
+    },
+    {
+      "id": 9,
+      "characterId": "1",
+      "date": "2023-12-04",
+      "time": 25
+    },
+    {
+      "id": 10,
+      "characterId": "1",
+      "date": "2023-04-15",
+      "time": 100
+    },
+    {
+      "id": 11,
+      "characterId": "1",
+      "date": "2023-01-11",
+      "time": 50
+    },
+    {
+      "id": 12,
+      "characterId": "1",
+      "date": "2023-01-12",
+      "time": 100
+    },
+    {
+      "id": 13,
+      "characterId": "1",
+      "date": "2023-01-13",
+      "time": 200
+    },
+    {
+      "id": 14,
+      "characterId": "1",
+      "date": "2023-01-14",
+      "time": 25
+    },
+    {
+      "id": 15,
+      "characterId": "1",
+      "date": "2023-01-15",
+      "time": 50
+    },
+    {
+      "id": 16,
+      "characterId": "1",
+      "date": "2023-01-16",
+      "time": 250
+    },
+    {
+      "id": 17,
+      "characterId": "1",
+      "date": "2023-01-17",
+      "time": 0
+    },
+    {
+      "id": 18,
+      "characterId": "1",
+      "date": "2023-01-18",
+      "time": 25
+    },
+    {
+      "id": 19,
+      "characterId": "1",
+      "date": "2023-01-19",
+      "time": 100
+    },
+    {
+      "id": 20,
+      "characterId": "1",
+      "date": "2023-01-20",
+      "time": 200
     }
   ]
 }
