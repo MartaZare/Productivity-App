@@ -17,6 +17,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 *,
 *::before,
 *::after {
@@ -87,11 +89,6 @@ button:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
-}
-
-.chart {
-  width: 80%;
-  height: 300px;
 }
 
 .table-container {
@@ -346,6 +343,7 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100vh;
   gap: 10%;
 }
 .home .user img {
@@ -418,6 +416,26 @@ h1 {
   50% {
     transform: translateY(-20px);
   }
+}
+
+.chart {
+  width: 80%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 2px dashed #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+.chart h2 {
+  font-size: 48px;
+}
+.chart p {
+  font-size: 28px;
 }
 
 .navbar {
