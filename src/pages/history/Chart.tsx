@@ -15,7 +15,7 @@ interface ChartProps {
 
 function Chart(props: ChartProps) {
   return (
-    <div className="chart">
+    <>
       {props.historyArray.length === 0 ? (
         <>
           <h2>No Results to Display</h2>
@@ -25,27 +25,29 @@ function Chart(props: ChartProps) {
           </p>
         </>
       ) : (
-        <ResponsiveContainer width="100%" height="100%">
-          <AreaChart
-            width={800}
-            height={400}
-            data={props.historyArray}
-            margin={{ top: 20, left: -10, right: 10, bottom: -10 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <YAxis dataKey="time" tick={{ fill: "#ffffff" }} />
-            <XAxis dataKey="date" tick={{ display: "none" }} />
-            <Tooltip />
-            <Area
-              type="monotone"
-              dataKey="time"
-              stroke="#ffffff"
-              fill="#e25788"
-            />
-          </AreaChart>
-        </ResponsiveContainer>
+        <div className="chart">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart
+              width={800}
+              height={400}
+              data={props.historyArray}
+              margin={{ top: 20, left: -10, right: 10, bottom: -10 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <YAxis dataKey="time" tick={{ fill: "#ffffff" }} />
+              <XAxis dataKey="date" tick={{ display: "none" }} />
+              <Tooltip />
+              <Area
+                type="monotone"
+                dataKey="time"
+                stroke="#ffffff"
+                fill="#e25788"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
       )}
-    </div>
+    </>
   );
 }
 

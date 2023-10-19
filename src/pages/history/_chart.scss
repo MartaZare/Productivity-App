@@ -18,3 +18,9 @@
     font-size: 28px;
   }
 }
+
+@media (max-width: 820px) {
+  .chart {
+    width: 90%;
+  }
+}

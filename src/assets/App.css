@@ -36,14 +36,13 @@
 
 html {
   height: 100vh;
-  background-image: url("public/assets/other/champ-select.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 body {
   height: 100vh;
   width: 100%;
+  background-image: url("public/assets/other/champ-select.gif");
+  background-size: auto;
 }
 
 a,
@@ -72,7 +71,6 @@ button:hover {
   margin-top: 100px;
 }
 .page .content {
-  width: 100%;
   max-width: 800px;
   display: flex;
   flex-direction: column;
@@ -83,24 +81,22 @@ button:hover {
   color: #1a1b2b;
   -webkit-text-stroke: 1px #7efffa;
 }
-.page article {
+.page .content article {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
-
-.table-container {
-  width: 800px;
+.page .content article .table-container {
+  width: 100%;
+  max-height: 300px;
   margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.table-container tbody {
   overflow-y: scroll;
-  height: 200px;
+  display: inline-block;
 }
 
 table {
@@ -127,17 +123,22 @@ table th {
 
 @media (max-width: 820px) {
   .page .content h1 {
-    font-size: 3em;
+    font-size: 4em;
     text-align: center;
-    text-wrap: wrap;
+    word-wrap: break-word;
   }
-  .table-container {
+  .page .content article .table-container {
     border-radius: 0px;
-    width: -moz-fit-content;
-    width: fit-content;
     padding: 5px;
+    max-width: 400px;
+    max-height: 300px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
   }
-  .table-container tbody {
+  .page .content article .table-container tbody {
     width: -moz-min-content;
     width: min-content;
     max-height: 200px;
@@ -146,20 +147,20 @@ table th {
     flex-direction: column;
     align-items: center;
   }
-  .table-container tr,
-  .table-container td {
+  .page .content article .table-container tr,
+  .page .content article .table-container td {
     display: block;
   }
-  .table-container tr {
+  .page .content article .table-container tr {
     margin-bottom: 15px;
     width: -moz-fit-content;
     width: fit-content;
   }
-  .table-container td {
+  .page .content article .table-container td {
     text-align: right;
     position: relative;
   }
-  .table-container td::before {
+  .page .content article .table-container td::before {
     content: attr(data-label);
     position: absolute;
     left: 0;
@@ -168,7 +169,7 @@ table th {
     font-weight: bold;
     text-align: left;
   }
-  .table-container th {
+  .page .content article .table-container th {
     display: none;
   }
 }
@@ -438,6 +439,11 @@ h1 {
   font-size: 28px;
 }
 
+@media (max-width: 820px) {
+  .chart {
+    width: 90%;
+  }
+}
 .navbar {
   display: flex;
   justify-content: space-around;
