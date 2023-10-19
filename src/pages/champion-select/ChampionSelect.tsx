@@ -69,10 +69,10 @@ function ChampionSelect(props: ChampionSelectProps) {
   };
 
   return (
-    <div className="champion-page">
+    <main className="champion-page">
       <h1>SELECT CHAMPION</h1>
-      <div className="champion-page-content">
-        <div className="champion-select">
+      <section className="champion-page-wrapper">
+        <article className="champion-select">
           <div className="champion-select-window">
             <button
               className="prev"
@@ -80,7 +80,7 @@ function ChampionSelect(props: ChampionSelectProps) {
             >
               &lt;
             </button>
-            <div className="all-champions">
+            <figure className="all-champions">
               {images.map((image) => (
                 <img
                   className="champion"
@@ -90,7 +90,7 @@ function ChampionSelect(props: ChampionSelectProps) {
                   onClick={() => chooseChampion(image.name)}
                 />
               ))}
-            </div>
+            </figure>
             <button
               className="next"
               onClick={() => {
@@ -100,7 +100,7 @@ function ChampionSelect(props: ChampionSelectProps) {
               &gt;
             </button>
           </div>
-        </div>
+        </article>
         {champion ? (
           <img
             className="displayed-champion"
@@ -114,9 +114,9 @@ function ChampionSelect(props: ChampionSelectProps) {
             alt={`warrior-image`}
           />
         )}
-      </div>
+      </section>
       <button onClick={handleClick}>CONTINUE</button>
-    </div>
+    </main>
   );
 }
 

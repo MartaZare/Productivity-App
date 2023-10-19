@@ -10,10 +10,10 @@ function Play() {
   const navigate = useNavigate();
 
   return (
-    <div className="play">
+    <main className="play">
       {championSelected ? (
         <>
-          <div className="animation">
+          <section className="animation">
             <img
               id={`${champion}`}
               src={`assets/champions/${champion}.png`}
@@ -27,13 +27,13 @@ function Play() {
               alt="monster"
               style={{ width: "400px", height: "400px" }}
             />
-          </div>
+          </section>
           <button onClick={() => navigate("/timer")}>Play</button>
         </>
       ) : (
         <ChampionSelect setChampionSelected={setChampionSelected} />
       )}
-    </div>
+    </main>
   );
 }
 

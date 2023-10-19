@@ -16,22 +16,20 @@ function Navbar() {
   }
 
   return (
-    <>
-      <div className="navbar">
-        <Link to="/" className="nav-link" onClick={colorLink}>
-          Home
-        </Link>
-        <Link to="/play" className="nav-link" onClick={colorLink}>
-          Play
-        </Link>
-        <Link to="/history" className="nav-link" onClick={colorLink}>
-          History
-        </Link>
-        <Link to="/admin" className="nav-link" onClick={colorLink}>
-          Admin
-        </Link>
-      </div>
-    </>
+    <nav className="navbar">
+      <Link to="/" className="nav-link" onClick={colorLink}>
+        Home
+      </Link>
+      <Link to="/play" className="nav-link" onClick={colorLink}>
+        Play
+      </Link>
+      <Link to="/history" className="nav-link" onClick={colorLink}>
+        History
+      </Link>
+      <Link to="/admin" className="nav-link" onClick={colorLink}>
+        Admin
+      </Link>
+    </nav>
   );
 }
 

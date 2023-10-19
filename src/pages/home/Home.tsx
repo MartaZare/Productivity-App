@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Character } from "../../data/Types";
+import { CharacterType } from "../../data/Types";
 import useLogout from "../../hooks/useLogout";
 import { useEffect, useState } from "react";
 import ProgressBar from "../../components/progress-bar/ProgressBar";
@@ -10,7 +10,7 @@ export default function Home() {
   const SESSION_MINUTES = 25;
   const navigate = useNavigate();
   const logout = useLogout();
-  const [character, setCharacter] = useState<Character | undefined>();
+  const [character, setCharacter] = useState<CharacterType | undefined>();
   const [progress, setProgress] = useState<number | undefined>();
   const [level, setLevel] = useState(0);
 
@@ -47,21 +47,21 @@ export default function Home() {
   };
 
   return (
-    <section className="home">
+    <main className="home">
       {character && (
         <>
-          <div className="user">
+          <section className="user">
             <img
               src={`assets/champions/${character.champion}.png`}
               alt={`${character.champion}`}
             />
             <h2>{character.nickname}</h2>
-          </div>
+          </section>
 
-          <div className="stats">
+          <section className="stats">
             <h2>{level}</h2>
+            <p>LVL</p>
 
-            <p>LVL </p>
             {progress ? (
               <ProgressBar progress={progress} />
             ) : (
@@ -75,9 +75,9 @@ export default function Home() {
               <p>Sessions</p>
               <h3>{character.time / 25}</h3>
             </div>
-          </div>
+          </section>
         </>
       )}
-    </section>
+    </main>
   );
 }

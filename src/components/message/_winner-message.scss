@@ -5,12 +5,12 @@
   @include flex-column-center;
 
   h1 {
-    font-size: $font-small;
+    font-size: $font-medium;
     color: $win-font-fill-color;
     -webkit-text-stroke: $border-extra-thin $win-border-color;
   }
 
   img {
-    width: 200px;
+    width: $img-medium;
   }
 }

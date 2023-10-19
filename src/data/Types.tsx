@@ -1,4 +1,4 @@
-export type User = {
+export type UserType = {
   id: string;
   email: string;
   password: string;
@@ -7,7 +7,7 @@ export type User = {
   persist: boolean;
 };
 
-export type Character = {
+export type CharacterType = {
   id: string;
   userId: string;
   nickname: string;
@@ -16,14 +16,14 @@ export type Character = {
   level: number;
 };
 
-export type Session = {
+export type SessionType = {
   id: string;
   characterId: string;
   date: string;
   time: number;
 };
 
-export type History = {
+export type HistoryType = {
   date: string;
   time: number;
 };

@@ -94,7 +94,7 @@ function Timer() {
   }
 
   return (
-    <>
+    <section className="match-page">
       {rounds <= 4 && (
         <>
           {timeLeft > 0 && (
@@ -124,7 +124,7 @@ function Timer() {
                   {minutes} : {seconds < 10 ? `0${seconds}` : seconds}
                 </p>
               </div>
-              <div className="play-btns">
+              <div className="btn-wrapper">
                 {workMode && (
                   <button className="surrender-btn" onClick={handleSurrender}>
                     Surrender
@@ -141,8 +141,8 @@ function Timer() {
         </>
       )}
 
-      {rounds > 4 && <WinnerMessage />}
-    </>
+      {rounds > 4 && <WinnerMessage setPlayMode={setPlayMode} />}
+    </section>
   );
 }
 

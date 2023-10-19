@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { User } from "../data/Types";
+import { UserType } from "../data/Types";
 
 const persistedValue = localStorage.getItem("persist");
 
-const initialState: User = {
+const initialState: UserType = {
   id: "",
   email: "",
   password: "",
@@ -16,7 +16,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUserObject: (state, action: PayloadAction<User>) => {
+    setUserObject: (state, action: PayloadAction<UserType>) => {
       return {
         ...state,
         ...action.payload,

@@ -2,7 +2,6 @@
 @import "../../styles/mixins";
 
 .champion-page {
-  margin-top: 50px;
   @include flex-column-center;
 
   h1 {
@@ -11,7 +10,7 @@
     -webkit-text-stroke: $border-extra-thin $accent-color-light;
   }
 
-  .champion-page-content {
+  .champion-page-wrapper {
     @include flex-row-center;
     gap: 50px;
 

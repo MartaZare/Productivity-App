@@ -3,29 +3,28 @@ import {
   YAxis,
   CartesianGrid,
   AreaChart,
-  Tooltip,
   Area,
   ResponsiveContainer,
 } from "recharts";
-import { History } from "../../data/Types";
+import { HistoryType } from "../../data/Types";
 
 interface ChartProps {
-  historyArray: History[];
+  historyArray: HistoryType[];
 }
 
 function Chart(props: ChartProps) {
   return (
     <>
       {props.historyArray.length === 0 ? (
-        <>
+        <section>
           <h2>No Results to Display</h2>
           <p>
             If you already completed at least one study session try reloading
             the page.
           </p>
-        </>
+        </section>
       ) : (
-        <div className="chart">
+        <figure className="chart">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               width={800}
@@ -34,9 +33,9 @@ function Chart(props: ChartProps) {
               margin={{ top: 20, left: -10, right: 10, bottom: -10 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <YAxis dataKey="time" tick={{ fill: "#ffffff" }} />
-              <XAxis dataKey="date" tick={{ display: "none" }} />
-              <Tooltip />
+              <YAxis tick={{ fill: "#ffffff" }} />
+              <XAxis tick={{ display: "none" }} />
+
               <Area
                 type="monotone"
                 dataKey="time"
@@ -45,7 +44,7 @@ function Chart(props: ChartProps) {
               />
             </AreaChart>
           </ResponsiveContainer>
-        </div>
+        </figure>
       )}
     </>
   );

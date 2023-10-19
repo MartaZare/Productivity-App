@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Character } from "../data/Types";
+import { CharacterType } from "../data/Types";
 
-const initialState: Character = {
+const initialState: CharacterType = {
   id: "1",
   userId: "",
   nickname: "",
@@ -14,7 +14,7 @@ const characterSlice = createSlice({
   name: "character",
   initialState,
   reducers: {
-    setCharacter: (state, action: PayloadAction<Character>) => ({
+    setCharacter: (state, action: PayloadAction<CharacterType>) => ({
       ...state,
       ...action.payload,
     }),

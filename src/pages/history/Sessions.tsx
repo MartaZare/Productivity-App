@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BASE_URL } from "../../api/axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { Session, History } from "../../data/Types";
+import { SessionType, HistoryType } from "../../data/Types";
 import Chart from "./Chart";
 import HistoryTable from "./HistoryTable";
 
@@ -11,10 +11,10 @@ function Sessions() {
   const currentCharacterId = useSelector(
     (state: RootState) => state.character.id
   );
-  const [sessions, setSessions] = useState<Session[]>([]);
+  const [sessions, setSessions] = useState<SessionType[]>([]);
   const [timeArray, setTimeArray] = useState<number[]>([]);
   const [dateArray, setDateArray] = useState<string[]>([]);
-  const [historyArray, setHistoryArray] = useState<History[]>([]);
+  const [historyArray, setHistoryArray] = useState<HistoryType[]>([]);
 
   useEffect(() => {
     const getSessions = async () => {
@@ -59,16 +59,16 @@ function Sessions() {
   }, [sessions]);
 
   return (
-    <article>
+    <>
       {timeArray?.length ? (
-        <>
+        <article>
           <Chart historyArray={historyArray} />
           <HistoryTable dateArray={dateArray} timeArray={timeArray} />
-        </>
+        </article>
       ) : (
         <p>No users to display</p>
       )}
-    </article>
+    </>
   );
 }
 

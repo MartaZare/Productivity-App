@@ -15,10 +15,8 @@ import { RootState } from "../store";
 
 // export default RequireAuth;
 
-import React from "react";
-
 function RequireAuth() {
-  return <div>RequireAuth</div>;
+  return <section>RequireAuth</section>;
 }
 
 export default RequireAuth;

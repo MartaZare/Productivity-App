@@ -2,12 +2,12 @@ import Users from "./Users";
 
 function Admin() {
   return (
-    <section className="page">
-      <div className="content">
+    <main className="page">
+      <section className="page-wrapper">
         <h1>ADMIN PAGE</h1>
         <Users />
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
 

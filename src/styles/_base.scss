@@ -14,7 +14,9 @@ body {
   height: 100vh;
   width: 100%;
   background-image: url("public/assets/other/champ-select.gif");
-  background-size: auto;
+  background-size: cover;
+  @include flex-column-center;
+  padding-top: 200px;
 }
 
 a,
@@ -26,4 +28,21 @@ button {
 a:hover,
 button:hover {
   @include button-hover;
+}
+
+.btn-wrapper {
+  @include flex-row-center;
+  gap: 20px;
+  button {
+    background-color: #17a6a1;
+  }
+  button:hover {
+    background-color: #0d5f5c;
+  }
+  .surrender-btn {
+    background-color: #d01f48;
+  }
+  .surrender-btn:hover {
+    background-color: #700f26;
+  }
 }

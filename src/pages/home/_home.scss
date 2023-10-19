@@ -9,7 +9,7 @@
 
   .user {
     img {
-      width: $img-medium;
+      min-width: $img-medium;
     }
 
     h2 {
@@ -26,7 +26,7 @@
     padding: 3%;
     color: $accent-color-light;
     font-size: $font-small;
-    width: 40%;
+    min-width: 400px;
 
     h2 {
       text-align: center;

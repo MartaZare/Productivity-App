@@ -21,7 +21,7 @@ function HistoryTable(props: HistoryTableProps) {
   }
 
   return (
-    <div className="table-container">
+    <div className="table-wrapper">
       <table className="table">
         <thead>
           <tr>
