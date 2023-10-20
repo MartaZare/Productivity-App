@@ -1,18 +1,21 @@
 {
   "users": [
     {
+      "id": 1,
       "email": "johndoe@gmail.com",
       "password": "12kj.,44f",
       "role": "user",
       "token": ""
     },
     {
+      "id": 2,
       "email": "aleksandrastewart@yahoo.com",
       "password": "fsdkfdksj544",
       "role": "user",
       "token": ""
     },
     {
+      "id": 3,
       "email": "rock11223@gmail.com",
       "password": "Mfsdkfssdfsdfdksj544",
       "role": "user",
@@ -22,11 +25,12 @@
   "characters": [
     {
       "id": 1,
-      "userId": "1",
+      "userId": 1,
       "nickname": "MarshMellow",
-      "champion": "",
-      "time": 800,
-      "level": 16
+      "champion": "artemis",
+      "time": 150,
+      "level": 2,
+      "progress": 2
     }
   ],
   "sessions": [

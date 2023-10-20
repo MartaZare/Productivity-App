@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import WinnerMessage from "../message/WinnerMessage";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../api/axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { setTime } from "../../reducers/characterSlice";
+import updateProgress from "../progress/updateProgress";
 
 function Timer() {
   const INITIAL_WORK_TIME = 0.1;
@@ -18,7 +18,6 @@ function Timer() {
   const [pause, setPause] = useState(false);
   const [workMode, setWorkMode] = useState(true);
   const characterId = useSelector((state: RootState) => state.character.id);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [playMode, setPlayMode] = useState(true);
 
@@ -56,7 +55,6 @@ function Timer() {
   }, [workMode, timeLeft]);
 
   useEffect(() => {
-    console.log("I worked");
     if (playMode) {
       return;
     } else {
@@ -67,14 +65,11 @@ function Timer() {
           );
           let characterData = await response.data;
           let totalTime = (await characterData.time) + roundsCompleted * 25;
-
+          updateProgress(totalTime, characterData);
           await axios.patch(`${BASE_URL}/characters/${characterId}`, {
             time: totalTime,
           });
 
-          dispatch(setTime(totalTime));
-          console.log("I updated time");
-          console.log(`${totalTime} my total time`);
           navigate("/");
         } catch (error) {
           console.error("Error:", error);
@@ -84,14 +79,6 @@ function Timer() {
       fetchData();
     }
   }, [playMode]);
-
-  function handlePause() {
-    setPause((prev) => !prev);
-  }
-
-  function handleSurrender() {
-    setPlayMode(false);
-  }
 
   return (
     <section className="match-page">
@@ -126,12 +113,15 @@ function Timer() {
               </div>
               <div className="btn-wrapper">
                 {workMode && (
-                  <button className="surrender-btn" onClick={handleSurrender}>
+                  <button
+                    className="surrender-btn"
+                    onClick={() => setPlayMode(false)}
+                  >
                     Surrender
                   </button>
                 )}
                 {timeLeft !== 0 && (
-                  <button onClick={handlePause}>
+                  <button onClick={() => setPause((prev) => !prev)}>
                     {pause ? "Continue" : "Pause"}
                   </button>
                 )}

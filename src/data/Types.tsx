@@ -14,6 +14,7 @@ export type CharacterType = {
   champion: string;
   time: number;
   level: number;
+  progress: number;
 };
 
 export type SessionType = {

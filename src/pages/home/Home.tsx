@@ -2,44 +2,29 @@ import { useNavigate } from "react-router-dom";
 import { CharacterType } from "../../data/Types";
 import useLogout from "../../hooks/useLogout";
 import { useEffect, useState } from "react";
-import ProgressBar from "../../components/progress-bar/ProgressBar";
+import ProgressBar from "../../components/progress/ProgressBar";
 import axios from "axios";
 import { BASE_URL } from "../../api/axios";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
+import ChampionSelect from "../champion-select/ChampionSelect";
 
 export default function Home() {
-  const SESSION_MINUTES = 25;
   const navigate = useNavigate();
   const logout = useLogout();
   const [character, setCharacter] = useState<CharacterType | undefined>();
-  const [progress, setProgress] = useState<number | undefined>();
-  const [level, setLevel] = useState(0);
+  const currentUserId = useSelector((state: RootState) => state.user.id);
 
   useEffect(() => {
     const getCharater = async () => {
-      const response = await axios.get(`${BASE_URL}/characters/1`);
-      setCharacter(await response.data);
-      setLevel(await response.data.level);
+      const response = await axios.get(
+        `${BASE_URL}/characters?userId=${currentUserId}`
+      );
+
+      setCharacter(await response.data[0]);
     };
     getCharater();
-  }, [level]);
-
-  useEffect(() => {
-    if (character) {
-      setProgress((character.time / SESSION_MINUTES) % 4);
-
-      if (progress === 0) {
-        const updateLvl = async () => {
-          await axios.patch(`${BASE_URL}/characters/${character.id}`, {
-            level: level + 1,
-          });
-        };
-
-        updateLvl();
-      }
-    }
-  }, [character]);
-
-  console.log("progress" + progress);
+  }, []);
 
   const signOut = async () => {
     await logout();
@@ -48,22 +33,23 @@ export default function Home() {
 
   return (
     <main className="home">
-      {character && (
+      {character?.champion ? (
         <>
           <section className="user">
             <img
               src={`assets/champions/${character.champion}.png`}
               alt={`${character.champion}`}
+              onClick={() => navigate("/champion-select")}
             />
             <h2>{character.nickname}</h2>
           </section>
 
           <section className="stats">
-            <h2>{level}</h2>
+            <h2>{character.level}</h2>
             <p>LVL</p>
 
-            {progress ? (
-              <ProgressBar progress={progress} />
+            {character.progress ? (
+              <ProgressBar progress={character.progress} />
             ) : (
               <ProgressBar progress={0} />
             )}
@@ -77,6 +63,8 @@ export default function Home() {
             </div>
           </section>
         </>
+      ) : (
+        <ChampionSelect />
       )}
     </main>
   );

@@ -4,11 +4,11 @@ import { UserType } from "../data/Types";
 const persistedValue = localStorage.getItem("persist");
 
 const initialState: UserType = {
-  id: "",
-  email: "",
-  password: "",
-  role: "",
-  token: "",
+  id: "1",
+  email: "kadskjsa",
+  password: "sasjhsakj",
+  role: "user",
+  token: "fdgdfg",
   persist: persistedValue ? JSON.parse(persistedValue) : false,
 };
 

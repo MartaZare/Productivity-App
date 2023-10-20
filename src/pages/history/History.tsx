@@ -3,7 +3,7 @@ import Sessions from "./Sessions";
 function History() {
   return (
     <main className="page ">
-      <section className="content">
+      <section className="page-wrapper">
         <h1>MATCH HISTORY</h1>
         <Sessions />
       </section>

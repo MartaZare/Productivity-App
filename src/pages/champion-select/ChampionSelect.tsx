@@ -1,38 +1,22 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import {
-  setChampion as setChampionInRedux,
+  setChampionInRedux,
   setCharacter,
 } from "../../reducers/characterSlice";
 import axios from "axios";
 import { BASE_URL } from "../../api/axios";
+import { RootState } from "../../store";
+import { HeroArray } from "../../data/Arrays";
+import { useNavigate } from "react-router-dom";
 
-interface ChampionSelectProps {
-  setChampionSelected: (arg: boolean) => void;
-}
-
-function ChampionSelect(props: ChampionSelectProps) {
+function ChampionSelect() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [imgIndex, setImgIndex] = useState(0);
   const [champion, setChampion] = useState("");
-
-  const images = [
-    { name: "warrior" },
-    { name: "athena" },
-    { name: "druid" },
-    { name: "alchemy" },
-    { name: "assasin" },
-    { name: "barbarian" },
-    { name: "magician" },
-    { name: "samurai" },
-  ];
-
-  const carouselInfiniteScroll = () => {
-    if (imgIndex === images.length - 1) {
-      return setImgIndex(0);
-    }
-    setImgIndex(imgIndex + 1);
-  };
+  const characterId = useSelector((state: RootState) => state.character.id);
+  const images = HeroArray;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,10 +24,6 @@ function ChampionSelect(props: ChampionSelectProps) {
     }, 3000);
     return () => clearInterval(interval);
   });
-
-  const chooseChampion = (name: string) => {
-    setChampion(name);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,15 +38,28 @@ function ChampionSelect(props: ChampionSelectProps) {
     fetchData();
   }, []);
 
-  const handleClick = () => {
-    axios.patch(`${BASE_URL}/characters/1`, { champion: champion });
+  function carouselInfiniteScroll() {
+    if (imgIndex === images.length - 1) {
+      return setImgIndex(0);
+    }
+    setImgIndex(imgIndex + 1);
+  }
+
+  function chooseChampion(name: string) {
+    setChampion(name);
+  }
+
+  function handleClick() {
+    axios.patch(`${BASE_URL}/characters/${characterId}`, {
+      champion: champion,
+    });
     dispatch(setChampionInRedux(champion));
-    props.setChampionSelected(true);
+
     if (!champion) {
       dispatch(setChampionInRedux("warrior"));
-      props.setChampionSelected(true);
     }
-  };
+    navigate("/play");
+  }
 
   return (
     <main className="champion-page">
