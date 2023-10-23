@@ -1,6 +1,6 @@
-interface WinnerMessageProps {
+type WinnerMessageProps = {
   setPlayMode: (arg: boolean) => void;
-}
+};
 
 export default function WinnerMessage(props: WinnerMessageProps) {
   const { setPlayMode } = props;

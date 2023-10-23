@@ -61,10 +61,10 @@ function Sessions() {
   return (
     <>
       {timeArray?.length ? (
-        <article>
+        <section>
           <Chart historyArray={historyArray} />
           <HistoryTable dateArray={dateArray} timeArray={timeArray} />
-        </article>
+        </section>
       ) : (
         <p>No users to display</p>
       )}

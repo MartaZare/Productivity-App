@@ -85,7 +85,7 @@ button:hover {
   color: #1a1b2b;
   -webkit-text-stroke: 1px #7efffa;
 }
-.page .page-wrapper article {
+.page .page-wrapper section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,7 +93,7 @@ button:hover {
   width: 100%;
   gap: 5vh;
 }
-.page .page-wrapper article .table-wrapper {
+.page .page-wrapper section .table-wrapper {
   width: 100%;
   max-height: 50vh;
   margin-bottom: 50px;
@@ -132,7 +132,7 @@ table th {
     text-align: center;
     word-wrap: break-word;
   }
-  .page .page-wrapper article .table-wrapper {
+  .page .page-wrapper section .table-wrapper {
     border-radius: 0px;
     padding: 5px;
     max-width: 400px;
@@ -143,7 +143,7 @@ table th {
     justify-content: center;
     overflow-y: hidden;
   }
-  .page .page-wrapper article .table-wrapper tbody {
+  .page .page-wrapper section .table-wrapper tbody {
     width: -moz-min-content;
     width: min-content;
     max-height: 200px;
@@ -152,20 +152,20 @@ table th {
     flex-direction: column;
     align-items: center;
   }
-  .page .page-wrapper article .table-wrapper tr,
-  .page .page-wrapper article .table-wrapper td {
+  .page .page-wrapper section .table-wrapper tr,
+  .page .page-wrapper section .table-wrapper td {
     display: block;
   }
-  .page .page-wrapper article .table-wrapper tr {
+  .page .page-wrapper section .table-wrapper tr {
     margin-bottom: 15px;
     width: -moz-fit-content;
     width: fit-content;
   }
-  .page .page-wrapper article .table-wrapper td {
+  .page .page-wrapper section .table-wrapper td {
     text-align: right;
     position: relative;
   }
-  .page .page-wrapper article .table-wrapper td::before {
+  .page .page-wrapper section .table-wrapper td::before {
     content: attr(data-label);
     position: absolute;
     left: 0;
@@ -174,7 +174,7 @@ table th {
     font-weight: bold;
     text-align: left;
   }
-  .page .page-wrapper article .table-wrapper th {
+  .page .page-wrapper section .table-wrapper th {
     display: none;
   }
 }

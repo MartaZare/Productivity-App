@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { UserType } from "../../data/Types";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../api/axios";
 
@@ -38,7 +38,7 @@ function Users() {
   }, []);
 
   return (
-    <article>
+    <section>
       {users?.length ? (
         <table>
           <tr>
@@ -55,7 +55,7 @@ function Users() {
       ) : (
         <p>No users to display</p>
       )}
-    </article>
+    </section>
   );
 }
 

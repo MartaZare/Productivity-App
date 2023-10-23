@@ -1,12 +1,11 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import ChampionSelect from "../champion-select/ChampionSelect";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import getRandomMonster from "./getRandomMonster";
 
 function Play() {
   const champion = useSelector((state: RootState) => state.character.champion);
-  const navigate = useNavigate();
 
   return (
     <main className="play">
@@ -27,7 +26,7 @@ function Play() {
               style={{ width: "400px", height: "400px" }}
             />
           </section>
-          <button onClick={() => navigate("/timer")}>Play</button>
+          <Link to="/timer">Play</Link>
         </>
       ) : (
         <ChampionSelect />

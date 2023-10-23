@@ -65,7 +65,7 @@ function ChampionSelect() {
     <main className="champion-page">
       <h1>SELECT CHAMPION</h1>
       <section className="champion-page-wrapper">
-        <article className="champion-select">
+        <section className="champion-select">
           <div className="champion-select-window">
             <button
               className="prev"
@@ -93,7 +93,7 @@ function ChampionSelect() {
               &gt;
             </button>
           </div>
-        </article>
+        </section>
         {champion ? (
           <img
             className="displayed-champion"

@@ -8,9 +8,9 @@ import {
 } from "recharts";
 import { HistoryType } from "../../data/Types";
 
-interface ChartProps {
+type ChartProps = {
   historyArray: HistoryType[];
-}
+};
 
 function Chart(props: ChartProps) {
   return (

@@ -18,7 +18,7 @@
       @include small-title-style;
     }
 
-    article {
+    section {
       @include flex-column-center;
       width: 100%;
       gap: 5vh;
@@ -68,7 +68,7 @@ table {
         text-align: center;
         word-wrap: break-word;
       }
-      article {
+      section {
         .table-wrapper {
           border-radius: 0px;
           padding: 5px;

@@ -7,26 +7,34 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "../../api/axios";
 import { Link } from "react-router-dom";
+import getErrorMessage from "./getErrorMessage";
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "/api/Authorization/RegisterUser";
 
+const [form, setForm] = useState({
+  nickname: "",
+  email: "",
+  password: "",
+  matchPwd: "",
+});
+
+function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+  setForm({ ...form, [event.target.name]: event.target.value });
+}
+
 const Register = () => {
   const nicknameRef = useRef<HTMLInputElement>(null);
   const userRef = useRef<HTMLInputElement>(null);
   const errRef = useRef<HTMLInputElement>(null);
-  const [nickname, setNickname] = useState("");
 
-  const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
-  const [password, setPassword] = useState("");
   const [validPassword, setValidPassword] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
 
-  const [matchPwd, setMatchPwd] = useState("");
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
@@ -40,20 +48,20 @@ const Register = () => {
   }, []);
 
   useEffect(() => {
-    const result = EMAIL_REGEX.test(email);
+    const result = EMAIL_REGEX.test(form.email);
     setValidEmail(result);
-  }, [email]);
+  }, [form.email]);
 
   useEffect(() => {
-    const result = PWD_REGEX.test(password);
+    const result = PWD_REGEX.test(form.password);
     setValidPassword(result);
-    const match = password === matchPwd;
+    const match = form.password === form.matchPwd;
     setValidMatch(match);
-  }, [password, matchPwd]);
+  }, [form.password, form.matchPwd]);
 
   useEffect(() => {
     setErrMsg("");
-  }, [email, password, matchPwd]);
+  }, [form.email, form.password, form.matchPwd]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -61,7 +69,11 @@ const Register = () => {
     try {
       await axios.post(
         REGISTER_URL,
-        JSON.stringify({ nickname, email, password }),
+        JSON.stringify({
+          nickname: form.nickname,
+          email: form.email,
+          password: form.password,
+        }),
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -69,15 +81,9 @@ const Register = () => {
       );
 
       setSuccess(true);
-      setEmail("");
-      setPassword("");
-      setMatchPwd("");
-    } catch (err: any) {
-      if (err?.response) {
-        setErrMsg(err?.response.data.message);
-      } else {
-        setErrMsg("Registration failed. Try again later.");
-      }
+      setForm({ nickname: "", email: "", password: "", matchPwd: "" });
+    } catch (err: unknown) {
+      setErrMsg(getErrorMessage(err));
       errRef.current?.focus();
     }
   };
@@ -108,8 +114,8 @@ const Register = () => {
               id="nickname"
               ref={nicknameRef}
               autoComplete="off"
-              onChange={(e) => setNickname(e.target.value)}
-              value={nickname}
+              onChange={handleChange}
+              value={form.nickname}
               required
             />
 
@@ -121,7 +127,7 @@ const Register = () => {
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validEmail || !email ? "hide" : "invalid"}
+                className={validEmail || !form.email ? "hide" : "invalid"}
               />
             </label>
             <input
@@ -129,8 +135,8 @@ const Register = () => {
               id="email"
               ref={userRef}
               autoComplete="off"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              onChange={handleChange}
+              value={form.email}
               required
               aria-invalid={validEmail ? "false" : "true"}
               aria-describedby="uidnote"
@@ -140,7 +146,7 @@ const Register = () => {
             <p
               id="uidnote"
               className={
-                emailFocus && email && !validEmail
+                emailFocus && form.email && !validEmail
                   ? "instructions"
                   : "offscreen"
               }
@@ -161,14 +167,14 @@ const Register = () => {
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validPassword || !password ? "hide" : "invalid"}
+                className={validPassword || !form.password ? "hide" : "invalid"}
               />
             </label>
             <input
               type="password"
               id="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
+              onChange={handleChange}
+              value={form.password}
               required
               aria-invalid={validPassword ? "false" : "true"}
               aria-describedby="pwdnote"
@@ -199,18 +205,18 @@ const Register = () => {
               Confirm Password:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validMatch && matchPwd ? "valid" : "hide"}
+                className={validMatch && form.matchPwd ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validMatch || !matchPwd ? "hide" : "invalid"}
+                className={validMatch || !form.matchPwd ? "hide" : "invalid"}
               />
             </label>
             <input
               type="password"
               id="confirm_pwd"
-              onChange={(e) => setMatchPwd(e.target.value)}
-              value={matchPwd}
+              onChange={handleChange}
+              value={form.matchPwd}
               required
               aria-invalid={validMatch ? "false" : "true"}
               aria-describedby="confirmnote"

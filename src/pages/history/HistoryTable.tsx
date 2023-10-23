@@ -1,7 +1,7 @@
-interface HistoryTableProps {
+type HistoryTableProps = {
   dateArray: string[];
   timeArray: number[];
-}
+};
 
 function HistoryTable(props: HistoryTableProps) {
   function getWeekday(date: string) {
