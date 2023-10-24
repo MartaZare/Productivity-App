@@ -35,7 +35,20 @@ function Users() {
     //DELETE THIS ^
 
     getUsers();
-  }, []);
+  }, [handleDelete]);
+
+  async function handleDelete(id: string, email: string) {
+    let confirmMessage = confirm(
+      `Are you sure you want to permanently delete user: ${email}`
+    );
+    if (confirmMessage === true) {
+      await axios.delete(`${BASE_URL}/users/${id}`).catch((error) => {
+        console.error(error);
+      });
+    } else {
+      return;
+    }
+  }
 
   return (
     <section>
@@ -55,7 +68,9 @@ function Users() {
                 <td style={{ textAlign: "center" }}>{user?.role}</td>
                 <td>
                   <Link to={`/admin/${user.id}/edit`}>Edit</Link>
-                  <button>Delete</button>
+                  <button onClick={() => handleDelete(user?.id, user?.email)}>
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
