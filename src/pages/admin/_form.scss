@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.form-page {
+  padding-bottom: 8em;
+  max-width: 800px;
+  @include flex-column-center;
+  h1 {
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    color: #d01f48;
+    width: 25em;
+    text-align: center;
+  }
+
+  form {
+    @include flex-column-center;
+    gap: 2em;
+
+    input,
+    select {
+      width: 20em;
+    }
+
+    button {
+      height: 2em;
+      width: 10em;
+    }
+  }
+}

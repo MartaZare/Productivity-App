@@ -18,10 +18,12 @@ form {
     font-size: $font-extra-small;
   }
 
-  input {
+  input,
+  select {
     @include input;
     font-size: $font-extra-small;
     padding: 0.25rem;
+    width: 100%;
   }
 
   label,

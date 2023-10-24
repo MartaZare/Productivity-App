@@ -13,6 +13,7 @@ import Register from "./pages/register/Register";
 import Navbar from "./components/navbar/Navbar";
 import Timer from "./components/timer/Timer";
 import ChampionSelect from "./pages/champion-select/ChampionSelect";
+import EditUser from "./pages/admin/EditUser";
 
 function App() {
   const location = useLocation();
@@ -48,6 +49,7 @@ function App() {
         <Route path="timer" element={<Timer />} />
         <Route path="history" element={<History />} />
         <Route path="admin" element={<Admin />} />
+        <Route path="/admin/:id/edit" element={<EditUser />} />
         <Route path="champion-select" element={<ChampionSelect />} />
         <Route path="*" element={<Missing />} />
       </Routes>

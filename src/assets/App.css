@@ -193,7 +193,8 @@ form button {
   padding: 0.5rem;
   font-size: 30px;
 }
-form input {
+form input,
+form select {
   font-size: 50px;
   color: #1a1b2b;
   padding: 10px 0px;
@@ -201,6 +202,7 @@ form input {
   border: solid 5px #1a1b2b;
   font-size: 30px;
   padding: 0.25rem;
+  width: 100%;
 }
 form label,
 form button {
@@ -452,6 +454,38 @@ h1 {
     width: 90%;
   }
 }
+.form-page {
+  padding-bottom: 8em;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-page h1 {
+  margin-bottom: 0.5em;
+}
+.form-page h2 {
+  color: #d01f48;
+  width: 25em;
+  text-align: center;
+}
+.form-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+.form-page form input,
+.form-page form select {
+  width: 20em;
+}
+.form-page form button {
+  height: 2em;
+  width: 10em;
+}
+
 .navbar {
   display: flex;
   justify-content: space-around;

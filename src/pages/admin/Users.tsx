@@ -7,7 +7,7 @@ import { BASE_URL } from "../../api/axios";
 
 function Users() {
   const [users, setUsers] = useState<UserType[]>([]);
-  const axiosPrivate = useAxiosPrivate();
+  // const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,16 +41,25 @@ function Users() {
     <section>
       {users?.length ? (
         <table>
-          <tr>
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-          {users.map((user, i) => (
-            <tr key={i}>
-              <td>{user?.email}</td>
-              <td style={{ textAlign: "center" }}>{user?.role}</td>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Role</th>
+              <th></th>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {users.map((user, i) => (
+              <tr key={i}>
+                <td>{user?.email}</td>
+                <td style={{ textAlign: "center" }}>{user?.role}</td>
+                <td>
+                  <Link to={`/admin/${user.id}/edit`}>Edit</Link>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       ) : (
         <p>No users to display</p>

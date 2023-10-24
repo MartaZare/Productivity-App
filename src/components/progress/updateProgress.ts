@@ -2,9 +2,9 @@ import { CharacterType } from "../../data/Types";
 import axios from "axios";
 import { BASE_URL } from "../../api/axios";
 
-function updateProgress(totalTime: number, character: CharacterType) {
-  const SESSION_MINUTES = 25;
+export const SESSION_MINUTES = 25;
 
+function updateProgress(totalTime: number, character: CharacterType) {
   const updateProgress = async () => {
     await axios.patch(`${BASE_URL}/characters/${character.id}`, {
       progress: (totalTime / SESSION_MINUTES) % 4,
