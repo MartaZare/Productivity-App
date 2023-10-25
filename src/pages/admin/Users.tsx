@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../api/axios";
 import Loading from "../../components/loading/Loading";
+import { getData } from "../../api/api";
 
 function Users() {
   const [loading, setLoading] = useState(true);
@@ -31,8 +32,7 @@ function Users() {
 
     //DELETE THIS v
     const getUsers = async () => {
-      const response = await axios.get(`${BASE_URL}/users`);
-      setUsers(response.data);
+      setUsers(await getData("users", ""));
       setLoading(false);
     };
     //DELETE THIS ^

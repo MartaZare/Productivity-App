@@ -9,6 +9,7 @@ import { BASE_URL } from "../../api/axios";
 import { RootState } from "../../store";
 import { HeroArray } from "../../data/Arrays";
 import { useNavigate } from "react-router-dom";
+import { getData } from "../../api/api";
 
 function ChampionSelect() {
   const dispatch = useDispatch();
@@ -27,12 +28,7 @@ function ChampionSelect() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/characters/1`);
-        dispatch(setCharacter(response.data));
-      } catch (error) {
-        console.error("Error fetching character data:", error);
-      }
+      dispatch(setCharacter(await getData("characters/", characterId)));
     };
 
     fetchData();

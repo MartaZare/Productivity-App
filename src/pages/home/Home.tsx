@@ -3,32 +3,33 @@ import { CharacterType } from "../../data/Types";
 import useLogout from "../../hooks/useLogout";
 import { useEffect, useState } from "react";
 import ProgressBar from "../../components/progress/ProgressBar";
-import axios from "axios";
-import { BASE_URL } from "../../api/axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import ChampionSelect from "../champion-select/ChampionSelect";
 import Loading from "../../components/loading/Loading";
+import { getData } from "../../api/api";
+import { setUserObject } from "../../reducers/userSlice";
 
 export default function Home() {
   const navigate = useNavigate();
   const logout = useLogout();
   const [loading, setLoading] = useState(true);
   const [character, setCharacter] = useState<CharacterType | undefined>();
-  const currentUserId = useSelector((state: RootState) => state.user.id);
+  const currentUser = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
+
+  const getCharater = async () => {
+    const user = await getData("users/", "1");
+    dispatch(setUserObject(user));
+
+    const characters = await getData("characters?userId=", currentUser.id);
+
+    console.log(characters[0]);
+    setCharacter(characters[0]);
+    setLoading(false);
+  };
 
   useEffect(() => {
-    const getCharater = async () => {
-      try {
-        const response = await axios.get(
-          `${BASE_URL}/characters?userId=${currentUserId}`
-        );
-        setCharacter(response.data[0]);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
-    };
     getCharater();
   }, []);
 
@@ -80,4 +81,7 @@ export default function Home() {
       )}
     </main>
   );
+}
+function dispatch(arg0: any) {
+  throw new Error("Function not implemented.");
 }

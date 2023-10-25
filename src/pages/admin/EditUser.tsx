@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios, { BASE_URL } from "../../api/axios";
 import { SESSION_MINUTES } from "../../components/progress/updateProgress";
+import { getData } from "../../api/api";
 
 function EditUser() {
   const { id } = useParams();
@@ -24,16 +25,18 @@ function EditUser() {
 
   useEffect(() => {
     const getUserInfo = async () => {
-      const [userResponse, characterResponse] = await Promise.all([
-        axios.get(`${BASE_URL}/users/${id}`),
-        axios.get(`${BASE_URL}/characters?userId=${id}`),
-      ]);
+      if (id) {
+        const [userResponse, characterResponse] = await Promise.all([
+          getData("users/", id),
+          getData("characters?userId=", id),
+        ]);
 
-      setState((prev) => ({
-        ...prev,
-        user: userResponse.data,
-        character: characterResponse.data[0],
-      }));
+        setState((prev) => ({
+          ...prev,
+          user: userResponse.data,
+          character: characterResponse.data[0],
+        }));
+      }
     };
 
     getUserInfo();

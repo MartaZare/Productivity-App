@@ -8,6 +8,13 @@
       "token": ""
     },
     {
+      "id": 2,
+      "email": "johndoe@gmail.com",
+      "password": "12kj.,44f",
+      "role": "user",
+      "token": ""
+    },
+    {
       "id": 3,
       "email": "rock11223@gmail.com",
       "password": "Mfsdkfssdfsdfdksj544",
@@ -21,7 +28,7 @@
       "userId": 1,
       "nickname": "MarshMellow",
       "champion": "artemis",
-      "time": 175,
+      "time": 275,
       "level": 2,
       "progress": 3
     }

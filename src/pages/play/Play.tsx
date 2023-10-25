@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import ChampionSelect from "../champion-select/ChampionSelect";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import getRandomMonster from "./getRandomMonster";
 import { useEffect, useState } from "react";
 import Loading from "../../components/loading/Loading";

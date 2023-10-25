@@ -6,6 +6,7 @@ import { BASE_URL } from "../../api/axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import updateProgress from "../progress/updateProgress";
+import { getData } from "../../api/api";
 
 function Timer() {
   const INITIAL_WORK_TIME = 0.1;
@@ -59,21 +60,14 @@ function Timer() {
       return;
     } else {
       const fetchData = async () => {
-        try {
-          const response = await axios.get(
-            `${BASE_URL}/characters/${characterId}`
-          );
-          let characterData = await response.data;
-          let totalTime = (await characterData.time) + roundsCompleted * 25;
-          updateProgress(totalTime, characterData);
-          await axios.patch(`${BASE_URL}/characters/${characterId}`, {
-            time: totalTime,
-          });
+        let characterData = await getData("characters/", characterId);
+        let totalTime = (await characterData.time) + roundsCompleted * 25;
+        updateProgress(totalTime, characterData);
+        await axios.patch(`${BASE_URL}/characters/${characterId}`, {
+          time: totalTime,
+        });
 
-          navigate("/");
-        } catch (error) {
-          console.error("Error:", error);
-        }
+        navigate("/");
       };
 
       fetchData();

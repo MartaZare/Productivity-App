@@ -1,12 +1,11 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../../api/axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { SessionType, HistoryType } from "../../data/Types";
 import Chart from "./Chart";
 import HistoryTable from "./HistoryTable";
 import Loading from "../../components/loading/Loading";
+import { getData } from "../../api/api";
 
 function Sessions() {
   const [loading, setLoading] = useState(true);
@@ -20,17 +19,12 @@ function Sessions() {
 
   useEffect(() => {
     const getSessions = async () => {
-      try {
-        const response = await axios.get(
-          `${BASE_URL}/sessions?characterId=${currentCharacterId}`
-        );
-        setSessions(response.data);
-      } catch (err) {
-        console.error("Error:", err);
-      }
+      setSessions(await getData("sessions?characterId=", currentCharacterId));
     };
     getSessions();
   }, [currentCharacterId]);
+
+  console.log(sessions);
 
   useEffect(() => {
     if (sessions.length > 0) {
