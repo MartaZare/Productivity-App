@@ -545,4 +545,23 @@ h1 {
 }
 .winner-message img {
   width: 350px;
+}
+
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.loading-wrapper h2 {
+  font-size: 80px;
+  color: #1a1b2b;
+  -webkit-text-stroke: 1px #7efffa;
+  text-align: center;
 }/*# sourceMappingURL=App.css.map */

@@ -4,8 +4,10 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../api/axios";
+import Loading from "../../components/loading/Loading";
 
 function Users() {
+  const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState<UserType[]>([]);
   // const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
@@ -31,6 +33,7 @@ function Users() {
     const getUsers = async () => {
       const response = await axios.get(`${BASE_URL}/users`);
       setUsers(response.data);
+      setLoading(false);
     };
     //DELETE THIS ^
 
@@ -52,32 +55,40 @@ function Users() {
 
   return (
     <section>
-      {users?.length ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Role</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, i) => (
-              <tr key={i}>
-                <td>{user?.email}</td>
-                <td style={{ textAlign: "center" }}>{user?.role}</td>
-                <td>
-                  <Link to={`/admin/${user.id}/edit`}>Edit</Link>
-                  <button onClick={() => handleDelete(user?.id, user?.email)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {loading ? (
+        <Loading />
       ) : (
-        <p>No users to display</p>
+        <>
+          {users?.length ? (
+            <table>
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((user, i) => (
+                  <tr key={i}>
+                    <td>{user?.email}</td>
+                    <td style={{ textAlign: "center" }}>{user?.role}</td>
+                    <td>
+                      <Link to={`/admin/${user.id}/edit`}>Edit</Link>
+                      <button
+                        onClick={() => handleDelete(user?.id, user?.email)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>No users to display</p>
+          )}
+        </>
       )}
     </section>
   );

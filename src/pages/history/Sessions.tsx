@@ -6,8 +6,10 @@ import { RootState } from "../../store";
 import { SessionType, HistoryType } from "../../data/Types";
 import Chart from "./Chart";
 import HistoryTable from "./HistoryTable";
+import Loading from "../../components/loading/Loading";
 
 function Sessions() {
+  const [loading, setLoading] = useState(true);
   const currentCharacterId = useSelector(
     (state: RootState) => state.character.id
   );
@@ -58,15 +60,25 @@ function Sessions() {
     }
   }, [sessions]);
 
+  useEffect(() => {
+    setLoading(false);
+  }, [sessions, timeArray, dateArray, historyArray]);
+
   return (
     <>
-      {timeArray?.length ? (
-        <section>
-          <Chart historyArray={historyArray} />
-          <HistoryTable dateArray={dateArray} timeArray={timeArray} />
-        </section>
+      {loading ? (
+        <Loading />
       ) : (
-        <p>No users to display</p>
+        <>
+          {timeArray?.length ? (
+            <section>
+              <Chart historyArray={historyArray} />
+              <HistoryTable dateArray={dateArray} timeArray={timeArray} />
+            </section>
+          ) : (
+            <p>No users to display</p>
+          )}
+        </>
       )}
     </>
   );
