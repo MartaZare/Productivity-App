@@ -11,12 +11,27 @@ html {
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  @include flex-column-center;
+}
+
+.background {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   background-image: url("public/assets/other/champ-select.gif");
   background-size: cover;
-  @include flex-column-center;
-  padding-top: 200px;
+}
+
+@media (width <= 768px) {
+  .background {
+    position: relative;
+    width: 100vw;
+    height: 1600px;
+    background-image: url("public/assets/other/champ-select.gif");
+    background-attachment: fixed;
+  }
 }
 
 a,

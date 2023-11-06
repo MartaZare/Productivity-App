@@ -44,7 +44,7 @@
           width: 330px;
           height: 330px;
           border: solid $border-thin $accent-color;
-          background-color: rgba(0, 0, 0, 0.5);
+          background-color: $dark-transparent;
           color: $accent-color-light;
 
           .champion {

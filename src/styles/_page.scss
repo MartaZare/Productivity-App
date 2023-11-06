@@ -2,6 +2,7 @@
 @import "./mixins";
 
 .page {
+  padding-top: 100px;
   width: 100%;
   height: 100vh;
   @include flex-row-center;
@@ -48,7 +49,7 @@ table {
     border: 1px solid;
     padding: 0.45em;
     width: 15em;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $dark-transparent;
   }
 
   tr {
@@ -118,5 +119,11 @@ table {
         }
       }
     }
+  }
+}
+
+@media (width <= 768px) {
+  .page {
+    padding-top: 600px;
   }
 }

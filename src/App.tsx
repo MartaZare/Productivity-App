@@ -14,14 +14,33 @@ import Navbar from "./components/navbar/Navbar";
 import Timer from "./components/timer/Timer";
 import ChampionSelect from "./pages/champion-select/ChampionSelect";
 import EditUser from "./pages/admin/EditUser";
+import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
   const timerPage = location.pathname === "/timer";
-  return (
-    <>
-      {!timerPage && <Navbar />}
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const backgroundElement = document.querySelector(
+        ".background"
+      ) as HTMLElement;
+      if (backgroundElement && window.innerWidth <= 768) {
+        backgroundElement.style.backgroundPositionX = -scrollPosition + "px";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <section className="background">
+      {!timerPage && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />}>
           {/* <Route path="log-in" element={<Login />} />
@@ -53,7 +72,7 @@ function App() {
         <Route path="champion-select" element={<ChampionSelect />} />
         <Route path="*" element={<Missing />} />
       </Routes>
-    </>
+    </section>
   );
 }
 
