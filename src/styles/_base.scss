@@ -49,15 +49,15 @@ button:hover {
   @include flex-row-center;
   gap: 20px;
   button {
-    background-color: #17a6a1;
+    background-color: $primary-color;
   }
   button:hover {
-    background-color: #0d5f5c;
+    background-color: $dark-primary-color;
   }
   .surrender-btn {
-    background-color: #d01f48;
+    background-color: $danger-color;
   }
   .surrender-btn:hover {
-    background-color: #700f26;
+    background-color: $dark-danger-color;
   }
 }

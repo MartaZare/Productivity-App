@@ -82,7 +82,6 @@ button:hover {
 .page {
   padding-top: 100px;
   width: 100%;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,6 +89,7 @@ button:hover {
 }
 .page .page-wrapper {
   max-width: 1000px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,13 +110,34 @@ button:hover {
 }
 .page .page-wrapper section .table-wrapper {
   width: 100%;
-  max-height: 50vh;
-  margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow-y: scroll;
   display: inline-block;
+}
+.page .page-wrapper section .table-wrapper .table-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+.page .page-wrapper section .table-wrapper a,
+.page .page-wrapper section .table-wrapper button {
+  font-size: 30px;
+  padding: 10px 40px;
+}
+.page .page-wrapper section .table-wrapper a {
+  background-color: #17a6a1;
+}
+.page .page-wrapper section .table-wrapper a:hover {
+  background-color: #0d5f5c;
+}
+.page .page-wrapper section .table-wrapper button {
+  background-color: #d01f48;
+}
+.page .page-wrapper section .table-wrapper button:hover {
+  background-color: #700f26;
 }
 
 table {
@@ -125,6 +146,7 @@ table {
   color: #ffffff;
   border: hidden;
   border-radius: 20px;
+  height: 100px;
 }
 table th,
 table td {
@@ -151,7 +173,7 @@ table th {
     border-radius: 0px;
     padding: 5px;
     max-width: 400px;
-    max-height: 300px;
+    max-height: 900px;
     margin-bottom: 50px;
     display: flex;
     align-items: center;
@@ -161,7 +183,7 @@ table th {
   .page .page-wrapper section .table-wrapper tbody {
     width: -moz-min-content;
     width: min-content;
-    max-height: 200px;
+    max-height: 900px;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -195,7 +217,7 @@ table th {
 }
 @media (width <= 768px) {
   .page {
-    padding-top: 600px;
+    padding-top: 500px;
   }
 }
 form {
@@ -477,7 +499,7 @@ h1 {
 
 .chart {
   width: 80%;
-  height: 300px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
