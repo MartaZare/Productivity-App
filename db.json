@@ -9,42 +9,7 @@
     },
     {
       "id": 2,
-      "email": "johndoe@gmail.com",
-      "password": "12kj.,44f",
-      "role": "user",
-      "token": ""
-    },
-    {
-      "id": 3,
-      "email": "rock11223@gmail.com",
-      "password": "Mfsdkfssdfsdfdksj544",
-      "role": "user",
-      "token": ""
-    },
-    {
-      "id": 1,
-      "email": "johndoe@gmail.com",
-      "password": "12kj.,44f",
-      "role": "user",
-      "token": ""
-    },
-    {
-      "id": 2,
-      "email": "johndoe@gmail.com",
-      "password": "12kj.,44f",
-      "role": "user",
-      "token": ""
-    },
-    {
-      "id": 3,
-      "email": "rock11223@gmail.com",
-      "password": "Mfsdkfssdfsdfdksj544",
-      "role": "user",
-      "token": ""
-    },
-    {
-      "id": 2,
-      "email": "johndoe@gmail.com",
+      "email": "johnny@gmail.com",
       "password": "12kj.,44f",
       "role": "user",
       "token": ""
@@ -62,9 +27,9 @@
       "id": 1,
       "userId": 1,
       "nickname": "MarshMellow",
-      "champion": "artemis",
-      "time": 275,
-      "level": 2,
+      "champion": "samurai",
+      "time": 375,
+      "level": 3,
       "progress": 3
     }
   ],

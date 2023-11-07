@@ -27,14 +27,12 @@ function Play() {
                   id={`${champion}`}
                   src={`assets/champions/${champion}.png`}
                   alt={`${champion}`}
-                  style={{ width: "400px", height: "400px" }}
                 />
                 <p>VS</p>
                 <img
                   id="monster"
                   src={`assets/other/${getRandomMonster()}.png`}
                   alt="monster"
-                  style={{ width: "400px", height: "400px" }}
                 />
               </section>
               <Link to="/timer">Play</Link>

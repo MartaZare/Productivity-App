@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios, { BASE_URL } from "../../api/axios";
-import { SESSION_MINUTES } from "../../components/progress/updateProgress";
+import { SESSION_MINUTES } from "../../data/Constants";
 import { getData } from "../../api/api";
 
 function EditUser() {

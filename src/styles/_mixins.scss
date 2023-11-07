@@ -14,12 +14,17 @@
 }
 
 @mixin button {
-  padding: 10px 50px 10px 50px;
+  padding: 10px 50px;
   border: none;
   border-radius: 30px;
   font-size: $font-small;
   background-color: $accent-color;
   color: $accent-color-light;
+}
+
+@mixin small-button {
+  padding: 7px 30px;
+  font-size: $font-small;
 }
 
 @mixin button-hover {

@@ -5,10 +5,7 @@
   width: 100vw;
   height: 100vh;
   position: relative;
-  margin-top: -200px;
   @include flex-column-center;
-  background-image: url("public/assets/other/play.gif");
-  background-size: cover;
 }
 
 .work-status {
@@ -21,5 +18,31 @@
 
   img {
     max-width: $img-medium;
+  }
+}
+
+@media (width<=770px) {
+  .match-page {
+    padding-top: 800px;
+  }
+}
+
+@media (width<=695px) {
+  .match-page {
+    padding-top: 800px;
+    img {
+      width: $img-small;
+    }
+    .btn-wrapper {
+      button {
+        @include small-button;
+        font-size: 36px;
+      }
+    }
+  }
+  .work-status {
+    p {
+      font-size: $font-medium;
+    }
   }
 }

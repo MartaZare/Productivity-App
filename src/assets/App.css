@@ -47,7 +47,7 @@ body {
 a,
 button {
   text-decoration: none;
-  padding: 10px 50px 10px 50px;
+  padding: 10px 50px;
   border: none;
   border-radius: 30px;
   font-size: 50px;
@@ -230,7 +230,7 @@ table th {
 }
 @media (width <= 768px) {
   .page {
-    padding-top: 80vh;
+    padding-top: 65vh;
   }
 }
 form {
@@ -477,10 +477,8 @@ h1 {
   padding-top: -100px;
   height: 100vh;
   width: 100vw;
-  background-image: url("public/assets/other/play.gif");
   background-size: cover;
   opacity: 0.9;
-  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -491,9 +489,10 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 5vh;
 }
 .play .animation img {
+  width: 400px;
   animation: levitate 3s ease-in-out infinite;
 }
 .play .animation p {
@@ -510,6 +509,30 @@ h1 {
   }
 }
 
+@media (width <= 1020px) {
+  .play .animation img {
+    width: 300px;
+  }
+}
+@media (width <= 800px) {
+  .play .animation img {
+    width: 200px;
+  }
+  .play a {
+    padding: 7px 30px;
+    font-size: 50px;
+  }
+}
+@media (width < 790px) {
+  .play {
+    justify-content: flex-start;
+    padding-top: 700px;
+  }
+  .play .animation {
+    justify-content: space-between;
+    gap: 0;
+  }
+}
 .chart {
   width: 80%;
   height: 250px;
@@ -588,13 +611,10 @@ h1 {
   width: 100vw;
   height: 100vh;
   position: relative;
-  margin-top: -200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("public/assets/other/play.gif");
-  background-size: cover;
 }
 
 .work-status {
@@ -613,6 +633,27 @@ h1 {
   max-width: 350px;
 }
 
+@media (width <= 770px) {
+  .match-page {
+    padding-top: 800px;
+  }
+}
+@media (width <= 695px) {
+  .match-page {
+    padding-top: 800px;
+  }
+  .match-page img {
+    width: 200px;
+  }
+  .match-page .btn-wrapper button {
+    padding: 7px 30px;
+    font-size: 50px;
+    font-size: 36px;
+  }
+  .work-status p {
+    font-size: 80px;
+  }
+}
 .winner-message {
   display: flex;
   flex-direction: column;

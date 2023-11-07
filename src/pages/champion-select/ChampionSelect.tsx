@@ -54,6 +54,7 @@ function ChampionSelect() {
     if (!champion) {
       dispatch(setChampionInRedux("warrior"));
     }
+    console.log("champion selected");
     navigate("/play");
   }
 

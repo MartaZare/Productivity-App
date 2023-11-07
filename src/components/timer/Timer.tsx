@@ -5,8 +5,7 @@ import axios from "axios";
 import { BASE_URL } from "../../api/axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import updateProgress from "../progress/updateProgress";
-import { getData } from "../../api/api";
+import { getData, updateLevelInDB, updateProgressInDB } from "../../api/api";
 
 function Timer() {
   const INITIAL_WORK_TIME = 0.1;
@@ -62,7 +61,8 @@ function Timer() {
       const fetchData = async () => {
         let characterData = await getData("characters/", characterId);
         let totalTime = (await characterData.time) + roundsCompleted * 25;
-        updateProgress(totalTime, characterData);
+        updateProgressInDB(totalTime, characterData);
+        updateLevelInDB(totalTime, characterData);
         await axios.patch(`${BASE_URL}/characters/${characterId}`, {
           time: totalTime,
         });
