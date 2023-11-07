@@ -23,10 +23,6 @@ function HistoryTable(props: HistoryTableProps) {
     return dayName;
   }
 
-  useEffect(() => {
-    setTableHeight("history", 30);
-  }, []);
-
   return (
     <div className="table-wrapper history">
       <table>
@@ -38,7 +34,7 @@ function HistoryTable(props: HistoryTableProps) {
             <th>Sessions</th>
           </tr>
         </thead>
-        <tbody style={{ maxHeight: "200px" }}>
+        <tbody>
           {props.dateArray.map((date, index) => (
             <tr key={index}>
               <td data-label="Date">{date}</td>

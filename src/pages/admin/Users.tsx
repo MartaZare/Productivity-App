@@ -7,6 +7,7 @@ import { BASE_URL } from "../../api/axios";
 import Loading from "../../components/loading/Loading";
 import { getData } from "../../api/api";
 import setTableHeight from "./setTableHeight";
+import { event } from "jquery";
 
 function Users() {
   const [loading, setLoading] = useState(true);
@@ -14,10 +15,6 @@ function Users() {
   // const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    setTableHeight("users", 65);
-  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -77,8 +74,8 @@ function Users() {
                 <tbody>
                   {users.map((user, i) => (
                     <tr key={i}>
-                      <td>{user?.email}</td>
-                      <td style={{ textAlign: "center" }}>{user?.role}</td>
+                      <td data-label="Email">{user?.email}</td>
+                      <td data-label="Role">{user?.role}</td>
                       <td className="table-btns">
                         <Link to={`/admin/${user.id}/edit`}>Edit</Link>
                         <button

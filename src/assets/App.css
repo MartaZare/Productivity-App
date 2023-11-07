@@ -80,7 +80,7 @@ button:hover {
 }
 
 .page {
-  padding-top: 100px;
+  padding-top: 15vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -89,11 +89,10 @@ button:hover {
 }
 .page .page-wrapper {
   max-width: 1000px;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5vh;
+  gap: 2vh;
 }
 .page .page-wrapper h1 {
   font-size: 80px;
@@ -106,7 +105,7 @@ button:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 5vh;
+  gap: 2vh;
 }
 .page .page-wrapper section .table-wrapper {
   width: 100%;
@@ -138,6 +137,12 @@ button:hover {
 }
 .page .page-wrapper section .table-wrapper button:hover {
   background-color: #700f26;
+}
+.page .history {
+  height: 30vh;
+}
+.page .users {
+  height: 65vh;
 }
 
 table {
@@ -174,7 +179,7 @@ table th {
     padding: 5px;
     max-width: 400px;
     max-height: 900px;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,7 +188,6 @@ table th {
   .page .page-wrapper section .table-wrapper tbody {
     width: -moz-min-content;
     width: min-content;
-    max-height: 900px;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -214,10 +218,19 @@ table th {
   .page .page-wrapper section .table-wrapper th {
     display: none;
   }
+  .page .page-wrapper section .users {
+    height: 100vh;
+  }
+  .page .page-wrapper section .users tbody {
+    max-height: 600px;
+  }
+  .page .page-wrapper section .history tbody {
+    max-height: 200px;
+  }
 }
 @media (width <= 768px) {
   .page {
-    padding-top: 500px;
+    padding-top: 80vh;
   }
 }
 form {
@@ -461,7 +474,7 @@ h1 {
 }
 .play {
   position: relative;
-  margin-top: -100px;
+  padding-top: -100px;
   height: 100vh;
   width: 100vw;
   background-image: url("public/assets/other/play.gif");
